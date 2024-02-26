@@ -1,9 +1,18 @@
+//////////////////////////////////////////////////////////////////////
+//
+//            Single-Bit Double Flip Flop Synchronizer
+//
+//            Author : MAHMOUD MAGDI
+//
+//////////////////////////////////////////////////////////////////////
+
+
 module Double_FF_Synch (
 
-  input   logic   i_clk    ,
-  input   logic   i_rst_n  ,
-  input   logic   i_D      ,
-  output  logic   o_q
+  input   logic   i_clk    ,                                  // Destination Clock 
+  input   logic   i_rst_n  ,                                  // Active-Low Asynchronous Reset
+  input   logic   i_D      ,                                  // Signal to be synchronized
+  output  logic   o_q                                         // Synchronized Signal
   
 );
 
