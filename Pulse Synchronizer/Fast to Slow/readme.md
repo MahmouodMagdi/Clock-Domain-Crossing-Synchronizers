@@ -19,4 +19,5 @@ One restriction of a pulse synchronizer is that input pulses must have a minimum
 
 
 ## Simulation Result
-![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/2e6ff9ce-60b8-4ca9-82fe-0e305d8eef94)
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/90655a0f-1550-472d-98f4-6e950017db7e)
+
