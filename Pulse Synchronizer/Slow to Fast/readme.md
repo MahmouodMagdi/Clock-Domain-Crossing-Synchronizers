@@ -1,7 +1,8 @@
 # Slow to Fast Crossing Pulse Synchronizer
 
 
-![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/63474fdf-df03-4f36-8dc9-66f90e14bd63)
+![pulse_synch](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/6ec88005-7b55-4b9c-a145-23f0a7bc10fa)
+
 
 
 - This circuit detects the rising edge of the input to the synchronizer and generates a clockwide, active-high pulse.
