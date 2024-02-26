@@ -14,7 +14,8 @@ If the control signal changes too fast then the multi-flop synchronizer cannot a
 
 **Protocol to be taken care of for Toggle Synchronizer**
 
-One restriction of a pulse synchronizer is that input pulses must have a minimum spacing between pulses equal to two synchronizer clock periods. If the input pulses are closer, the output pulses in the new clock domain are adjacent to each other, resulting in an output pulse that is wider than one clock cycle.
+One restriction of a pulse synchronizer is that input pulses must have a minimum spacing between pulses equal to two synchronizer clock periods. If the input pulses are closer, the output pulses in the new clock domain are adjacent to each other, resulting in an output pulse that is wider than one clock cycle.This problem is more severe when the clock period of input pulse is greater than twice the
+synchronizer clock period. In this case, if the input pulses are too close, the synchronizer does not detect every one.
 
 
 
