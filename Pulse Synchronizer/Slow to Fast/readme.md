@@ -1,5 +1,9 @@
 # Slow to Fast Crossing Pulse Synchronizer
 
+
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/63474fdf-df03-4f36-8dc9-66f90e14bd63)
+
+
 - This circuit detects the rising edge of the input to the synchronizer and generates a clockwide, active-high pulse.
 - Switching the inverter on the AND gate inputs creates a synchronizer that detects the falling edge of the input signal.
 - Changing the AND gate to a NAND gate results in a circuit that generates an active-low pulse.
