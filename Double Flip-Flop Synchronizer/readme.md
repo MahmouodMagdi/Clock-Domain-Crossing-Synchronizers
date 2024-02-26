@@ -4,7 +4,8 @@ The main problem with Clock Domain Crossing (CDC) is **metastability** due to se
 
 ```A synchronizer is a device that samples an asynchronous signal and outputs a version of the signal that has transitions synchronized to a local or sample clock```
 
-The simplest and most common synchronizer used by digital designers is a two-flip-flop synchronizer as shown in the following figure:
+
+ - The simplest and most common synchronizer used by digital designers is a two-flip-flop synchronizer as shown in the following figure:
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/0088bb24-f5a3-403f-935d-52762daa469a)
 
