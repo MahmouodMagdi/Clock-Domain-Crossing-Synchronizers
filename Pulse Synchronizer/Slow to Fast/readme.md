@@ -14,3 +14,14 @@
 The safest pulse width is twice the synchronizer clock period. 
 
 **Important Note** ```This synchronizer does not work if the input is a single clock wide pulse entering a slower clock domain.```
+
+
+## Simulation Results
+
+![pulse_synch_waiveform_0](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/6f5d5173-1499-47b4-ac79-f986ca266923)
+
+![pulse_synch_waiveform_1](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/63314a9e-1e82-41c8-a84a-6e3171ca8354)
+
+![pulse_synch_waiveform_2](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/8dad02d3-069c-4c4d-b04a-9ed2501f583e)
+
+![pulse_synch_waiveform_3](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/a2f5abc8-c9fd-4c4e-8919-926007ad637a)
