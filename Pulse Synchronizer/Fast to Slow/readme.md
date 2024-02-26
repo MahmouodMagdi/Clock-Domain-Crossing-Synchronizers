@@ -1,5 +1,12 @@
 # Toggle Synchronizer
 
+This technique is used when the following criteria is satisfied:
+- source clock domain is faster than destination clock domain.
+- Clock domain crossing (CDC)is on a single bit.
+ 
+
+Toggle synchronizer is used to synchronize a pulse generated in a faster clock domain to a slower clock domain. In such scenarios a m-ff synchronizer fails as the destination ff may skip the incoming data pulse. The diagram below shows the implementation of a toggle synchronizer.
+
 If the control signal changes too fast then the multi-flop synchronizer cannot avoid the sampling of a metastable signal at the receiving clock domain. In this case, we can use Toggle synchronizer as shown in the below diagram. The basic function of a pulse synchronizer is to take a single clock wide pulse from one clock domain and create a single clock wide pulse in the new domain.
 
 
