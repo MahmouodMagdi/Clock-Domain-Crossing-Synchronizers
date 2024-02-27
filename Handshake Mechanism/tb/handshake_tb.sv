@@ -1,3 +1,12 @@
+///////////////////////////////////////////////////////////////////
+//
+//          Handshake Synchronizer Mechanism Test Bench 
+//
+//          Author: Mahmoud Magdi 
+//
+///////////////////////////////////////////////////////////////////
+
+
 module handshake_tb #(
 
     parameter DATA_WIDTH = 8
@@ -73,14 +82,14 @@ initial begin
     #500 $stop;
 end
 
-always @(posedge i_clk_a) begin
+always_Ff @(posedge i_clk_a) begin
     if(~o_busy & i_valid) begin
         expected[i_count] <= i_data;
         i_count = i_count + 1;
     end
 end
 
-always @(posedge o_valid) begin
+always_ff @(posedge o_valid) begin
     #1 result[o_count]     = o_data;
     #1 if(result[o_count] != expected[o_count]) begin
         $display("expected = %d     result = %d failed at time %t",expected[o_count], result[o_count], $time);
