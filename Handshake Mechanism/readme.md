@@ -5,7 +5,7 @@
 - The handshake protocol can only synchronize the request signal **"REQ"** and the response signal **"ACK"**, and the **data at the sending end remains unchanged during the validity of the request signal REQ**, so the handshake prototcol can meet the **needs of parallel data transmission security**.
 
 
-## How does the protocol works 
+## How does the protocol work
 
   1. The sender **first drives the multi-bit data to the bus (the data is ready first)**, and then **sends the request signal "REQ"**.
   2. The request signal **"REQ"** is then **synchronized into the receiving clock domain** using **Double-Flip-Flop Synchronizer**
