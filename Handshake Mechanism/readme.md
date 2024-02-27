@@ -17,6 +17,8 @@
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/ee6db1d0-e637-4f9c-afc5-2b416d37be80)
 
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/fc5f7c28-a973-4d73-941d-67e47856e9a8)
+
 
 ## Simulation Results 
 ### a. WaiveForm
