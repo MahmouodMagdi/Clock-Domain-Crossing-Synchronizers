@@ -36,3 +36,7 @@
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/c99361a4-ae28-4b28-b3e5-8c7291b86302)
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/aff2d0f6-0ec5-4a76-a66e-4ca602a9c5b0)
+
+### c. Expected Memory Data vs Result Memory Data 
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/2c0a2102-c8a8-4ed7-a2de-2fcf12631d5a)
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/dd637d85-ca73-42a4-9270-6297a50ebd47)
