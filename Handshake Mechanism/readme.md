@@ -2,7 +2,7 @@
 
 - The handshake protocol **converts the transmission problem of multi-bit data** into **a cross-clock domain problem of a single signal** (only the request signal **"REQ"** and the reply acknowledgement signal **"ACK"** are synchronized).
 
-- The handshake protocol can only synchronize the request signal **"REQ"** and the response signal **"ACK"**, and the **data at the sending end remains unchanged during the validity of the request signal REQ**, so the handshake prototcol can meet the **needs of parallel data transmission security**.
+- The handshake protocol can only synchronize the request signal **"REQ"** and the response signal **"ACK"**, and the **data at the sending end remains unchanged during the validity of the request signal REQ**, so the handshake protocol can meet the **needs of parallel data transmission security**.
 
 
 ## How does the protocol work
@@ -18,3 +18,15 @@
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/ee6db1d0-e637-4f9c-afc5-2b416d37be80)
 
 
+## Simulation Results 
+### a. WaiveForm
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/606456bb-7b78-42ae-925e-9599077aa51b)
+
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/8deae2f1-7ff1-4714-9d1e-e67468bc2117)
+
+
+### b. Terminal 
+
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/c99361a4-ae28-4b28-b3e5-8c7291b86302)
+
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/aff2d0f6-0ec5-4a76-a66e-4ca602a9c5b0)
