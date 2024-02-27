@@ -15,7 +15,9 @@
   6. If the sender recognizes that the **"ACK"** is valid, the **"REQ"** will be lowered (**here only the ACK needs to be synchronized to the sender clock domain**)
 
 
-![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/ee6db1d0-e637-4f9c-afc5-2b416d37be80)
+## Block Diagram
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/67d658cd-c893-4f75-aa9a-ff7e828354b2)
+
 
 
 ## FSM
