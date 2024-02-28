@@ -25,7 +25,7 @@
 
 
 ## Simulation Results 
-### a. WaiveForm
+### a. WaveForm
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/606456bb-7b78-42ae-925e-9599077aa51b)
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/8deae2f1-7ff1-4714-9d1e-e67468bc2117)
