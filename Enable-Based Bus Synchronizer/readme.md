@@ -35,8 +35,8 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
 
 ***Notice*** the multi-bit data signal passes straight from source (clock) flip-flop to destination (clock) flip-flop to avoid problems with synchronizing multiple bits. A single control signal is synchronized to allow time for the multi-bit data to settle from possible metastable state. The load pulse from the source clock domain first gets converted into a toggle. The toggle is synchronized across the clock domain crossing (CDC), then gets converted back to a load pulse in the destination clock domain. Finally that load pulse is used to load the multi-bit data signal into flip-flops in the destination clock domain.
 
-- The whole process takes at least two destination clocks.
-- Therefore to use this circuit, you must be certain that the input data only needs to be synchronized **not more than once every three destination clock cycles**. If you are unsure, then a more advanced synchronization circuit like the handshake synchronization mechanism or FIFO-based synchronization.
+- The whole process takes **at least two destination clocks**.
+- Therefore to use this circuit, you must be certain that **the input data only needs to be synchronized not more than once every three destination clock cycles**. If you are unsure, then a more advanced synchronization circuit like the handshake synchronization mechanism or FIFO-based synchronization.
 
 ## Cost of Enable Synchronization
 For using an enable synchronization based method, **an additional enable signal has to be generated**. This would mean **additional circuitry** for generating this enable signal. This in turn would mean **additional area and power**. Further, **similar costs also get added for synchronizing this additional enable signal**. However, this cost is more than offset, because individual bits of the bus are no longer required to be synchronized individually. 
