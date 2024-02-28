@@ -31,6 +31,13 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
   
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/b793b804-ef50-43c9-9389-71743ae7ac4d)
 
+
+
+***Notice*** the multi-bit data signal passes straight from source (clock) flip-flop to destination (clock) flip-flop to avoid problems with synchronizing multiple bits. A single control signal is synchronized to allow time for the multi-bit data to settle from possible metastable state. The load pulse from the source clock domain first gets converted into a toggle. The toggle is synchronized across the clock domain crossing (CDC), then gets converted back to a load pulse in the destination clock domain. Finally that load pulse is used to load the multi-bit data signal into flip-flops in the destination clock domain.
+
+- The whole process takes at least two destination clocks.
+- Therefore to use this circuit, you must be certain that the input data only needs to be synchronized **not more than once every three destination clock cycles**. If you are unsure, then a more advanced synchronization circuit like the handshake synchronization mechanism or FIFO-based synchronization.
+
 ## Cost of Enable Synchronization
 For using an enable synchronization based method, **an additional enable signal has to be generated**. This would mean **additional circuitry** for generating this enable signal. This in turn would mean **additional area and power**. Further, **similar costs also get added for synchronizing this additional enable signal**. However, this cost is more than offset, because individual bits of the bus are no longer required to be synchronized individually. 
 So, we can save on one synchronizing flop per bit. And, since we are talking about vectored signals, so, there has to be multiple bits. That means, the savings are in terms of multiple flops. However, once the bussed signal is generated, it takes 3 triggering edges of the destination clock for the values to be sampled.
