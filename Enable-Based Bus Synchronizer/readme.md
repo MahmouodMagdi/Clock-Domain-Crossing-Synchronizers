@@ -54,6 +54,7 @@ So, we can save on one synchronizing flop per bit. And, since we are talking abo
 
 Contrast this with the double flop synchronizer, There, the data reaches the destination flop at the second triggering edge of the destination flop. So, Enable Synchronization scheme has an **additional latency**.
 
+But, that’s the price that you have to pay – in order to **avoid the risk of capturing garbage data**.
 
 ## Simualtion Results
 
@@ -61,4 +62,4 @@ Contrast this with the double flop synchronizer, There, the data reaches the des
 
 ![enable_based_sync_tb_2](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/ad8bcde4-2416-4f05-9989-3e5f8c9452c8)
 
-But, that’s the price that you have to pay – in order to **avoid the risk of capturing garbage data**.
+
