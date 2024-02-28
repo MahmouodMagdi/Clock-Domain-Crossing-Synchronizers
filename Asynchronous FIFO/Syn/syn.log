@@ -1,0 +1,698 @@
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+                 Version K-2015.06 for linux64 - May 28, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/IC/.synopsys_dv_prefs.tcl
+########################### Define Top Module ############################
+set top_module FIFO_TOP
+FIFO_TOP
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+############################# Formality Setup File ##########################
+set_svf FIFO.svf                                                   
+1
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries          #"
+#      #setting Design Libraries          #
+puts "###########################################"
+###########################################
+#Add the path of the libraries to the search_path variable
+lappend search_path /home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+## Standard Cell libraries 
+set target_library [list $SSLIB]
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+## Standard Cell & Hard Macros libraries 
+set link_library [list * $SSLIB]  
+* scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+set file_format verilog
+verilog
+set fh [open FIFO.lst r+]
+file11
+set rtl [read $fh]
+/home/IC/Projects/FIFO/RTL/FIFO_TOP.v
+/home/IC/Projects/FIFO/RTL/FIFO_RPTR.v
+/home/IC/Projects/FIFO/RTL/ASYNC_FIFO_RAM.v
+/home/IC/Projects/FIFO/RTL/FIFO_WPTR.v
+/home/IC/Projects/FIFO/RTL/Read_Pointer_Sync.v
+/home/IC/Projects/FIFO/RTL/Write_Pointer_Sync.v
+
+set designs ""
+regsub -all "\n" $rtl " " designs
+6
+read_file -format $file_format $designs
+Loading db file '/home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/gtech.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/standard.sldb'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'
+  Loading link library 'gtech'
+Loading verilog files: '/home/IC/Projects/FIFO/RTL/FIFO_TOP.v' '/home/IC/Projects/FIFO/RTL/FIFO_RPTR.v' '/home/IC/Projects/FIFO/RTL/ASYNC_FIFO_RAM.v' '/home/IC/Projects/FIFO/RTL/FIFO_WPTR.v' '/home/IC/Projects/FIFO/RTL/Read_Pointer_Sync.v' '/home/IC/Projects/FIFO/RTL/Write_Pointer_Sync.v' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/IC/Projects/FIFO/RTL/FIFO_TOP.v
+Compiling source file /home/IC/Projects/FIFO/RTL/FIFO_RPTR.v
+Compiling source file /home/IC/Projects/FIFO/RTL/ASYNC_FIFO_RAM.v
+Compiling source file /home/IC/Projects/FIFO/RTL/FIFO_WPTR.v
+Compiling source file /home/IC/Projects/FIFO/RTL/Read_Pointer_Sync.v
+Compiling source file /home/IC/Projects/FIFO/RTL/Write_Pointer_Sync.v
+
+Inferred memory devices in process
+	in routine FIFO_R_Pointer line 45 in file
+		'/home/IC/Projects/FIFO/RTL/FIFO_RPTR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      R_ptr_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  Binary_R_ptr_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     R_empty_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ASYNC_FIFO_RAM line 29 in file
+		'/home/IC/Projects/FIFO/RTL/ASYNC_FIFO_RAM.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       MEM_reg       | Flip-flop |  128  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+============================================================
+| block name/line   | Inputs | Outputs | # sel inputs | MB |
+============================================================
+| ASYNC_FIFO_RAM/39 |   16   |    8    |      4       | N  |
+============================================================
+
+Inferred memory devices in process
+	in routine FIFO_Write_Pointer line 22 in file
+		'/home/IC/Projects/FIFO/RTL/FIFO_WPTR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      W_ptr_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  Binary_W_ptr_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     W_Full_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Sync_R2W line 23 in file
+		'/home/IC/Projects/FIFO/RTL/Read_Pointer_Sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Wq1_rptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    Wq2_rptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Sync_W2R line 23 in file
+		'/home/IC/Projects/FIFO/RTL/Write_Pointer_Sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Rq1_wptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    Rq2_wptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/IC/Projects/FIFO/RTL/FIFO_TOP.db:FIFO_TOP'
+Loaded 6 designs.
+Current design is 'FIFO_TOP'.
+FIFO_TOP FIFO_R_Pointer ASYNC_FIFO_RAM FIFO_Write_Pointer Sync_R2W Sync_W2R
+###################### Defining toplevel ###################################
+current_design $top_module
+Current design is 'FIFO_TOP'.
+{FIFO_TOP}
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'FIFO_TOP'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (6 designs)               /home/IC/Projects/FIFO/RTL/FIFO_TOP.db, etc
+  scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (library) /home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design
+1
+check_timing
+Information: Updating design information... (UID-85)
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Warning: The following end-points are not constrained for maximum delay.
+
+End point
+---------------
+ASYNC_FIFO_RAM_F3/MEM_reg[0][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[0][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[0][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[1][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[1][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[2][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[2][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[3][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[3][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[4][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[4][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[5][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[5][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[6][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[6][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[7][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[7][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[8][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[8][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[9][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[9][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[10][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[10][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[11][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[11][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[12][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[12][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[13][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[13][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[14][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[14][7]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][0]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][0]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][1]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][1]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][2]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][2]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][3]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][3]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][4]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][4]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][5]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][5]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][6]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][6]/synch_enable
+ASYNC_FIFO_RAM_F3/MEM_reg[15][7]/next_state
+ASYNC_FIFO_RAM_F3/MEM_reg[15][7]/synch_enable
+Empty
+FIFO_R_Pointer_F2/Binary_R_ptr_reg[0]/next_state
+FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]/next_state
+FIFO_R_Pointer_F2/Binary_R_ptr_reg[2]/next_state
+FIFO_R_Pointer_F2/Binary_R_ptr_reg[3]/next_state
+FIFO_R_Pointer_F2/Binary_R_ptr_reg[4]/next_state
+FIFO_R_Pointer_F2/R_empty_reg/next_state
+FIFO_R_Pointer_F2/R_ptr_reg[0]/next_state
+FIFO_R_Pointer_F2/R_ptr_reg[1]/next_state
+FIFO_R_Pointer_F2/R_ptr_reg[2]/next_state
+FIFO_R_Pointer_F2/R_ptr_reg[3]/next_state
+FIFO_R_Pointer_F2/R_ptr_reg[4]/next_state
+FIFO_Write_Pointer_F1/Binary_W_ptr_reg[0]/next_state
+FIFO_Write_Pointer_F1/Binary_W_ptr_reg[1]/next_state
+FIFO_Write_Pointer_F1/Binary_W_ptr_reg[2]/next_state
+FIFO_Write_Pointer_F1/Binary_W_ptr_reg[3]/next_state
+FIFO_Write_Pointer_F1/Binary_W_ptr_reg[4]/next_state
+FIFO_Write_Pointer_F1/W_Full_reg/next_state
+FIFO_Write_Pointer_F1/W_ptr_reg[0]/next_state
+FIFO_Write_Pointer_F1/W_ptr_reg[1]/next_state
+FIFO_Write_Pointer_F1/W_ptr_reg[2]/next_state
+FIFO_Write_Pointer_F1/W_ptr_reg[3]/next_state
+FIFO_Write_Pointer_F1/W_ptr_reg[4]/next_state
+Full
+R_Data[0]
+R_Data[1]
+R_Data[2]
+R_Data[3]
+R_Data[4]
+R_Data[5]
+R_Data[6]
+R_Data[7]
+Sync_R2W_F4/Wq1_rptr_reg[0]/next_state
+Sync_R2W_F4/Wq1_rptr_reg[1]/next_state
+Sync_R2W_F4/Wq1_rptr_reg[2]/next_state
+Sync_R2W_F4/Wq1_rptr_reg[3]/next_state
+Sync_R2W_F4/Wq1_rptr_reg[4]/next_state
+Sync_R2W_F4/Wq2_rptr_reg[0]/next_state
+Sync_R2W_F4/Wq2_rptr_reg[1]/next_state
+Sync_R2W_F4/Wq2_rptr_reg[2]/next_state
+Sync_R2W_F4/Wq2_rptr_reg[3]/next_state
+Sync_R2W_F4/Wq2_rptr_reg[4]/next_state
+Sync_W2R_F5/Rq1_wptr_reg[0]/next_state
+Sync_W2R_F5/Rq1_wptr_reg[1]/next_state
+Sync_W2R_F5/Rq1_wptr_reg[2]/next_state
+Sync_W2R_F5/Rq1_wptr_reg[3]/next_state
+Sync_W2R_F5/Rq1_wptr_reg[4]/next_state
+Sync_W2R_F5/Rq2_wptr_reg[0]/next_state
+Sync_W2R_F5/Rq2_wptr_reg[1]/next_state
+Sync_W2R_F5/Rq2_wptr_reg[2]/next_state
+Sync_W2R_F5/Rq2_wptr_reg[3]/next_state
+Sync_W2R_F5/Rq2_wptr_reg[4]/next_state
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+#################### Define Design Constraints #########################
+puts "###############################################"
+###############################################
+puts "############ Design Constraints #### ##########"
+############ Design Constraints #### ##########
+puts "###############################################"
+###############################################
+source ./cons.tcl
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c' found in library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'.
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+compile
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Sync_W2R'
+  Processing 'Sync_R2W'
+  Processing 'ASYNC_FIFO_RAM'
+  Processing 'FIFO_R_Pointer'
+  Processing 'FIFO_Write_Pointer'
+  Processing 'FIFO_TOP'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'FIFO_R_Pointer_DW01_cmp6_0'
+  Processing 'FIFO_R_Pointer_DW01_add_0'
+  Processing 'FIFO_Write_Pointer_DW01_add_0'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06  211304.8      0.00       0.0      10.1                          
+    0:00:06  211304.8      0.00       0.0      10.1                          
+    0:00:06  211304.8      0.00       0.0      10.1                          
+    0:00:06  211304.8      0.00       0.0      10.1                          
+    0:00:06  211304.8      0.00       0.0      10.1                          
+    0:00:06  204788.3      2.83     338.3       9.6                          
+    0:00:07  204588.4      2.71     315.5       9.6                          
+    0:00:08  204676.6      1.95     239.6       8.8                          
+    0:00:08  205024.9      2.45     243.6       8.8                          
+    0:00:09  204663.7      1.98     229.4       8.8                          
+    0:00:09  204880.1      1.73     216.7       8.8                          
+    0:00:09  204863.7      1.68     214.1       8.8                          
+    0:00:10  204053.1      1.66     199.3       8.8                          
+    0:00:10  203675.4      1.65     200.8       8.8                          
+    0:00:10  203562.5      1.64     195.6       8.8                          
+    0:00:11  203617.8      1.64     191.6       8.8                          
+    0:00:11  204555.5      1.59     189.4       8.8                          
+    0:00:11  204427.2      1.53     186.5       8.8                          
+    0:00:11  204450.8      1.51     183.3       8.8                          
+    0:00:11  204454.3      1.51     182.4       8.8                          
+    0:00:11  204461.3      1.51     180.6       8.8                          
+    0:00:11  204333.1      1.51     177.6       8.8                          
+    0:00:11  204204.9      1.48     174.7       8.8                          
+    0:00:12  204067.2      1.47     173.1       8.8                          
+    0:00:12  203973.1      1.47     173.1       8.8                          
+    0:00:12  203973.1      1.47     173.1       8.8                          
+    0:00:12  204309.6      1.12     130.6       0.0                          
+    0:00:12  204309.6      1.12     130.6       0.0                          
+    0:00:12  204309.6      1.12     130.6       0.0                          
+    0:00:12  204309.6      1.12     130.6       0.0                          
+    0:00:12  205881.4      0.60      58.7       0.0 ASYNC_FIFO_RAM_F3/MEM_reg[0][5]/D
+    0:00:12  205965.0      0.36      32.0       0.2 ASYNC_FIFO_RAM_F3/MEM_reg[14][5]/D
+    0:00:13  205739.1      0.27      24.3       0.2 ASYNC_FIFO_RAM_F3/MEM_reg[3][0]/D
+    0:00:13  205930.9      0.27      23.2       0.2 ASYNC_FIFO_RAM_F3/MEM_reg[2][7]/D
+    0:00:13  206613.3      0.27      21.9       0.3 ASYNC_FIFO_RAM_F3/MEM_reg[5][3]/D
+    0:00:13  207008.6      0.11       3.8       0.3 ASYNC_FIFO_RAM_F3/MEM_reg[0][3]/D
+    0:00:13  207529.8      0.06       2.8       0.4 ASYNC_FIFO_RAM_F3/MEM_reg[1][5]/D
+    0:00:14  207545.1      0.06       2.4       0.4 ASYNC_FIFO_RAM_F3/MEM_reg[14][6]/D
+    0:00:14  207883.9      0.05       2.2       0.7 ASYNC_FIFO_RAM_F3/MEM_reg[10][6]/D
+    0:00:14  208220.4      0.04       0.8       0.8 ASYNC_FIFO_RAM_F3/MEM_reg[11][3]/D
+    0:00:14  208384.0      0.02       0.3       0.8 ASYNC_FIFO_RAM_F3/MEM_reg[15][2]/D
+    0:00:14  208367.5      0.00       0.0       0.8                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:14  208367.5      0.00       0.0       0.8                          
+    0:00:14  208367.5      0.00       0.0       0.8                          
+    0:00:15  208216.9      0.00       0.0       0.8                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:15  208216.9      0.00       0.0       0.8                          
+    0:00:15  208034.5      0.00       0.0       0.0 ASYNC_FIFO_RAM_F3/MEM[3][4]
+    0:00:15  208038.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:15  208038.0      0.00       0.0       0.0                          
+    0:00:15  208038.0      0.00       0.0       0.0                          
+    0:00:16  205955.6      0.00       0.0       0.0                          
+    0:00:16  205778.0      0.02       0.0       0.0                          
+    0:00:16  205778.0      0.02       0.0       0.0                          
+    0:00:16  205778.0      0.02       0.0       0.0                          
+    0:00:16  205778.0      0.02       0.0       0.0                          
+    0:00:16  205778.0      0.00       0.0       0.0                          
+    0:00:16  205420.3      0.46       9.8       0.0                          
+    0:00:16  205366.1      0.46      12.0       0.0                          
+    0:00:16  205344.9      0.46      12.0       0.0                          
+    0:00:16  205344.9      0.46      12.0       0.0                          
+    0:00:16  205344.9      0.46      12.0       0.0                          
+    0:00:16  205344.9      0.46      12.0       0.0                          
+    0:00:16  205344.9      0.46      12.0       0.0                          
+    0:00:16  205344.9      0.46      12.0       0.0                          
+    0:00:16  205897.9      0.14       6.9       0.0 ASYNC_FIFO_RAM_F3/MEM_reg[9][7]/D
+    0:00:17  206676.8      0.07       3.2       0.0 ASYNC_FIFO_RAM_F3/MEM_reg[0][2]/D
+    0:00:17  206775.6      0.03       0.3       0.0 ASYNC_FIFO_RAM_F3/MEM_reg[8][5]/D
+    0:00:17  206756.8      0.00       0.0       0.0                          
+Loading db file '/home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+#############################################################################
+# Write out files
+#############################################################################
+write_file -format verilog -hierarchy -output netlists/$top_module.ddc
+Writing verilog file '/home/IC/Projects/FIFO/Syn/netlists/FIFO_TOP.ddc'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_file -format verilog -hierarchy -output netlists/$top_module.v
+Writing verilog file '/home/IC/Projects/FIFO/Syn/netlists/FIFO_TOP.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_sdf  sdf/$top_module.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/IC/Projects/FIFO/Syn/sdf/FIFO_TOP.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc  -nosplit sdc/$top_module.sdc
+1
+####################### reporting ##########################################
+report_area -hierarchy > Reports/area.rpt
+report_power -hierarchy > Reports/power.rpt
+report_timing -delay_type min > Reports/hold.rpt
+report_timing -delay_type max > Reports/setup.rpt
+report_clock -attributes > Reports/clocks.rpt
+report_constraint -all_violators -nosplit > Reports/constraints.rpt
+################# starting graphical user interface #######################
+#gui_start
+#exit
+dc_shell> 
+Received Signal 1 from: PID=8615 (UID=501)

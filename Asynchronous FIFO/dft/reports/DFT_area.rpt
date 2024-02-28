@@ -1,0 +1,53 @@
+ 
+****************************************
+Report : area
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:45:01 2023
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+Number of ports:                          147
+Number of nets:                           815
+Number of cells:                          689
+Number of combinational cells:            510
+Number of sequential cells:               170
+Number of macros/black boxes:               0
+Number of buf/inv:                        256
+Number of references:                      16
+
+Combinational area:               7063.730107
+Buf/Inv area:                     3142.965671
+Noncombinational area:            4909.192461
+Macro/Black Box area:                0.000000
+Net Interconnect area:          273841.346375
+
+Total cell area:                 11972.922568
+Total area:                     285814.268943
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area           Local cell area
+                                  -------------------  ---------------------------- 
+Hierarchical cell                 Absolute    Percent  Combi-     Noncombi-  Black-
+                                  Total       Total    national   national   boxes   Design
+--------------------------------  ----------  -------  ---------  ---------  ------  -------------------------
+FIFO_TOP                          11972.9226    100.0   534.2218     0.0000  0.0000  FIFO_TOP
+ASYNC_FIFO_RAM_F3                  8994.6948     75.1  5511.6628  3483.0320  0.0000  ASYNC_FIFO_RAM_test_1
+CLK_MUX_1                            15.2971      0.1    15.2971     0.0000  0.0000  MUX_2X1_0
+CLK_MUX_2                            15.2971      0.1    15.2971     0.0000  0.0000  MUX_2X1_3
+FIFO_R_Pointer_F2                   663.6588      5.5   281.2313   382.4275  0.0000  FIFO_R_Pointer_test_1
+FIFO_Write_Pointer_F1              1017.8455      8.5   633.0646   384.7809  0.0000  FIFO_Write_Pointer_test_1
+R_RST_MUX                            17.6505      0.1    17.6505     0.0000  0.0000  MUX_2X1_1
+Sync_R2W_F4                         329.4760      2.8     0.0000   329.4760  0.0000  Sync_R2W_test_1
+Sync_W2R_F5                         367.1304      3.1    37.6544   329.4760  0.0000  Sync_W2R_test_1
+W_RST_MUX                            17.6505      0.1    17.6505     0.0000  0.0000  MUX_2X1_2
+--------------------------------  ----------  -------  ---------  ---------  ------  -------------------------
+Total                                                  7063.7301  4909.1925  0.0000
+
+1

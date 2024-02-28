@@ -1,0 +1,21 @@
+ 
+****************************************
+Report : clocks
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:01:21 2023
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+R_CLK           20.00   {0 10}                        {R_CLK}
+W_CLK           50.00   {0 25}                        {W_CLK}
+--------------------------------------------------------------------------------
+1

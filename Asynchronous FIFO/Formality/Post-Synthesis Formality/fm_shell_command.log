@@ -1,0 +1,121 @@
+#@ # 
+#@ # Running fm_shell Version L-2016.03-SP1 for linux64 -- Apr 13, 2016
+#@ # Date:   Sat Feb 25 04:05:43 2023
+#@ # Run by: IC@IC
+#@ 
+
+source /opt/Synopsys/Formality2016/admin/setup/.synopsys_fm.setup
+#@ # -- Starting source /opt/Synopsys/Formality2016/admin/setup/.synopsys_fm.setup
+
+#@ #
+#@ # .synopsys_fm.setup: Initialization File for Formality
+#@ #
+#@ 
+#@ 
+#@ #
+#@ # Enable stack trace output on fatal.  Not available for all architectures.
+#@ #
+#@ if { $sh_arch == "sparc" || $sh_arch == "sparcOS5" ||      $sh_arch == "hp700" || $sh_arch == "hpux10" } {
+#@   set_unix_variable SYNOPSYS_TRACE ""
+#@ }
+#@ 
+#@ #
+#@ # Variable settings
+#@ #
+#@ set sh_new_variable_message true
+#@ 
+#@ #
+#@ # Synopsys strongly recommends that you uncomment the following command
+#@ # in order to set sh_command_abbrev_mode to the value "Command-Line-Only".
+#@ # Command abbreviation is intended as an interactive convenience.  Using
+#@ # abbreviations in scripts can cause commands to fail in subsequent releases.
+#@ # 
+#@ #set sh_command_abbrev_mode "Command-Line-Only"
+#@ 
+#@ #
+#@ # Some useful aliases
+#@ #
+#@ alias list_commands		help
+#@ 
+#@ #
+#@ # The alias of q to quit is commented out.  Remove the comment 
+#@ # character if you want this alias.  Some users find that having 
+#@ # this particular alias causes problems when mixed with page-mode
+#@ # for reports - an accidental repeated 'q' not only cancels the
+#@ # output but exits the tool.
+#@ #
+#@ #alias q quit
+#@ # -- End source /opt/Synopsys/Formality2016/admin/setup/.synopsys_fm.setup
+
+source -echo -verbose syn_fm_script.tcl
+#@ # -- Starting source syn_fm_script.tcl
+
+#@ 
+#@ ############################  Search PATH ################################
+#@ 
+#@ lappend search_path /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys
+#@ lappend search_path /home/IC/Projects/FIFO/RTL
+#@ 
+#@ ########################### Define Top Module ############################
+#@ 
+#@ set top_module FIFO_TOP
+#@ 
+#@ ######################### Formality Setup File ###########################
+#@ 
+#@ set synopsys_auto_setup true
+#@ 
+#@ set_svf "/home/IC/Projects/FIFO/Syn/FIFO.svf"
+#@ 
+#@ ####################### Read Reference tech libs ########################
+#@ 
+#@ set SSLIB "/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+#@ 
+#@ read_db -container Ref [list $SSLIB]
+#@ 
+#@ ###################  Read Reference Design Files ######################## 
+#@ read_verilog -container Ref "FIFO_TOP.v"
+#@ read_verilog -container Ref "FIFO_RPTR.v"
+#@ read_verilog -container Ref "ASYNC_FIFO_RAM.v"
+#@ read_verilog -container Ref "FIFO_WPTR.v"
+#@ read_verilog -container Ref "Read_Pointer_Sync.v"
+#@ read_verilog -container Ref "Write_Pointer_Sync.v"
+#@ 
+#@ ######################## set the top Reference Design ######################## 
+#@ 
+#@ set_reference_design FIFO_TOP
+#@ set_top FIFO_TOP
+#@ 
+#@ ####################### Read Implementation tech libs ######################## 
+#@ 
+#@ read_db -container Imp [list $SSLIB]
+#@ 
+#@ #################### Read Implementation Design Files ######################## 
+#@ 
+#@ read_verilog -container Imp -netlist "/home/IC/Projects/FIFO/Syn/netlists/FIFO_TOP.v"
+#@ 
+#@ ####################  set the top Implementation Design ######################
+#@ 
+#@ set_implementation_design FIFO_TOP
+#@ set_top FIFO_TOP
+#@ 
+#@ 
+#@ ## matching Compare points
+#@ match
+#@ 
+#@ ## verify
+#@ set successful [verify]
+#@ if {!$successful} {
+#@ diagnose
+#@ analyze_points -failing
+#@ }
+#@ 
+#@ report_passing_points > "reports/passing_points.rpt"
+#@ report_failing_points > "reports/failing_points.rpt"
+#@ report_aborted_points > "reports/aborted_points.rpt"
+#@ report_unverified_points > "reports/unverified_points.rpt"
+#@ 
+#@ 
+#@ start_gui
+#@ # -- End source syn_fm_script.tcl
+
+exit 

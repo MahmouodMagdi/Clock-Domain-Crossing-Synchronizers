@@ -1,0 +1,7 @@
+/home/IC/Projects/FIFO/dft/RTL/FIFO_TOP.v
+/home/IC/Projects/FIFO/dft/RTL/FIFO_RPTR.v
+/home/IC/Projects/FIFO/dft/RTL/ASYNC_FIFO_RAM.v
+/home/IC/Projects/FIFO/dft/RTL/FIFO_WPTR.v
+/home/IC/Projects/FIFO/dft/RTL/Read_Pointer_Sync.v
+/home/IC/Projects/FIFO/dft/RTL/Write_Pointer_Sync.v
+/home/IC/Projects/FIFO/dft/RTL/2X1_MUX.v

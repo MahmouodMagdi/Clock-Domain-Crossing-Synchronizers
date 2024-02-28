@@ -1,0 +1,226 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -nworst 3
+        -max_paths 3
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:45:01 2023
+****************************************
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+  Startpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg_1_
+              (rising edge-triggered flip-flop clocked by R_CLK)
+  Endpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg_2_
+            (rising edge-triggered flip-flop clocked by R_CLK)
+  Path Group: R_CLK
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_1_/CK (SDFFRQX4M)
+                                                          0.00       0.00 r
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_1_/Q (SDFFRQX4M)     0.71       0.71 r
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_2_/SI (SDFFRHQX8M)
+                                                          0.00       0.71 r
+  data arrival time                                                  0.71
+
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.55       0.55
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_2_/CK (SDFFRHQX8M)
+                                                          0.00       0.55 r
+  library hold time                                      -0.19       0.36
+  data required time                                                 0.36
+  --------------------------------------------------------------------------
+  data required time                                                 0.36
+  data arrival time                                                 -0.71
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.35
+
+
+  Startpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg_0_
+              (rising edge-triggered flip-flop clocked by R_CLK)
+  Endpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg_1_
+            (rising edge-triggered flip-flop clocked by R_CLK)
+  Path Group: R_CLK
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_0_/CK (SDFFRQX4M)
+                                                          0.00       0.00 r
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_0_/Q (SDFFRQX4M)     0.55       0.55 r
+  FIFO_R_Pointer_F2/U40/Y (CLKINVX40M)                    0.11       0.67 f
+  FIFO_R_Pointer_F2/U41/Y (CLKINVX40M)                    0.09       0.76 r
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_1_/SI (SDFFRQX4M)
+                                                          0.00       0.76 r
+  data arrival time                                                  0.76
+
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.55       0.55
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_1_/CK (SDFFRQX4M)
+                                                          0.00       0.55 r
+  library hold time                                      -0.19       0.36
+  data required time                                                 0.36
+  --------------------------------------------------------------------------
+  data required time                                                 0.36
+  data arrival time                                                 -0.76
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.39
+
+
+  Startpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg_3_
+              (rising edge-triggered flip-flop clocked by R_CLK)
+  Endpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg_4_
+            (rising edge-triggered flip-flop clocked by R_CLK)
+  Path Group: R_CLK
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_3_/CK (SDFFRHQX8M)
+                                                          0.00       0.00 r
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_3_/Q (SDFFRHQX8M)
+                                                          0.63       0.63 f
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_4_/SI (SDFFRQX1M)
+                                                          0.00       0.63 f
+  data arrival time                                                  0.63
+
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.55       0.55
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg_4_/CK (SDFFRQX1M)
+                                                          0.00       0.55 r
+  library hold time                                      -0.38       0.17
+  data required time                                                 0.17
+  --------------------------------------------------------------------------
+  data required time                                                 0.17
+  data arrival time                                                 -0.63
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.46
+
+
+  Startpoint: FIFO_Write_Pointer_F1/W_ptr_reg_2_
+              (rising edge-triggered flip-flop clocked by W_CLK)
+  Endpoint: FIFO_Write_Pointer_F1/W_ptr_reg_3_
+            (rising edge-triggered flip-flop clocked by W_CLK)
+  Path Group: W_CLK
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  FIFO_Write_Pointer_F1/W_ptr_reg_2_/CK (SDFFRQX2M)       0.00       0.00 r
+  FIFO_Write_Pointer_F1/W_ptr_reg_2_/Q (SDFFRQX2M)        0.67       0.67 r
+  FIFO_Write_Pointer_F1/W_ptr_reg_3_/SI (SDFFRHQX1M)      0.00       0.67 r
+  data arrival time                                                  0.67
+
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.55       0.55
+  FIFO_Write_Pointer_F1/W_ptr_reg_3_/CK (SDFFRHQX1M)      0.00       0.55 r
+  library hold time                                      -0.19       0.36
+  data required time                                                 0.36
+  --------------------------------------------------------------------------
+  data required time                                                 0.36
+  data arrival time                                                 -0.67
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.31
+
+
+  Startpoint: Sync_R2W_F4/Wq1_rptr_reg_1_
+              (rising edge-triggered flip-flop clocked by W_CLK)
+  Endpoint: Sync_R2W_F4/Wq2_rptr_reg_1_
+            (rising edge-triggered flip-flop clocked by W_CLK)
+  Path Group: W_CLK
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Sync_R2W_F4/Wq1_rptr_reg_1_/CK (SDFFRQX2M)              0.00       0.00 r
+  Sync_R2W_F4/Wq1_rptr_reg_1_/Q (SDFFRQX2M)               0.62       0.62 f
+  Sync_R2W_F4/Wq2_rptr_reg_1_/D (SDFFRQX2M)               0.00       0.62 f
+  data arrival time                                                  0.62
+
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.55       0.55
+  Sync_R2W_F4/Wq2_rptr_reg_1_/CK (SDFFRQX2M)              0.00       0.55 r
+  library hold time                                      -0.27       0.28
+  data required time                                                 0.28
+  --------------------------------------------------------------------------
+  data required time                                                 0.28
+  data arrival time                                                 -0.62
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.34
+
+
+  Startpoint: Sync_R2W_F4/Wq1_rptr_reg_0_
+              (rising edge-triggered flip-flop clocked by W_CLK)
+  Endpoint: Sync_R2W_F4/Wq2_rptr_reg_0_
+            (rising edge-triggered flip-flop clocked by W_CLK)
+  Path Group: W_CLK
+  Path Type: min
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Sync_R2W_F4/Wq1_rptr_reg_0_/CK (SDFFRQX2M)              0.00       0.00 r
+  Sync_R2W_F4/Wq1_rptr_reg_0_/Q (SDFFRQX2M)               0.62       0.62 f
+  Sync_R2W_F4/Wq2_rptr_reg_0_/D (SDFFRQX2M)               0.00       0.62 f
+  data arrival time                                                  0.62
+
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  clock uncertainty                                       0.55       0.55
+  Sync_R2W_F4/Wq2_rptr_reg_0_/CK (SDFFRQX2M)              0.00       0.55 r
+  library hold time                                      -0.27       0.28
+  data required time                                                 0.28
+  --------------------------------------------------------------------------
+  data required time                                                 0.28
+  data arrival time                                                 -0.62
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.34
+
+
+1

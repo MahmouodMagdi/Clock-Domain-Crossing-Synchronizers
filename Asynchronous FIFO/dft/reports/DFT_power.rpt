@@ -1,0 +1,54 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:45:01 2023
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+FIFO_TOP               tsmc13_wl30       scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+FIFO_TOP                                  0.201 8.75e-02 1.03e+07    0.299 100.0
+  Sync_W2R_F5 (Sync_W2R_test_1)        2.73e-04 4.48e-03 1.59e+05 4.91e-03   1.6
+  Sync_R2W_F4 (Sync_R2W_test_1)        1.39e-04 2.46e-03 1.35e+05 2.74e-03   0.9
+  ASYNC_FIFO_RAM_F3 (ASYNC_FIFO_RAM_test_1)
+                                       5.09e-02 6.09e-02 7.59e+06    0.119  39.9
+  FIFO_R_Pointer_F2 (FIFO_R_Pointer_test_1)
+                                       7.29e-03 7.78e-03 4.93e+05 1.56e-02   5.2
+  FIFO_Write_Pointer_F1 (FIFO_Write_Pointer_test_1)
+                                       7.34e-03 5.76e-03 8.61e+05 1.40e-02   4.7
+  R_RST_MUX (MUX_2X1_1)                2.97e-03 1.79e-04 2.14e+04 3.17e-03   1.1
+  W_RST_MUX (MUX_2X1_2)                3.08e-03 1.85e-04 2.14e+04 3.29e-03   1.1
+  CLK_MUX_2 (MUX_2X1_3)                2.01e-02 1.11e-03 1.99e+04 2.12e-02   7.1
+  CLK_MUX_1 (MUX_2X1_0)                6.49e-02 1.07e-03 1.99e+04 6.60e-02  22.1
+1

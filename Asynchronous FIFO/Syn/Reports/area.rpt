@@ -1,0 +1,48 @@
+ 
+****************************************
+Report : area
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:01:18 2023
+****************************************
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+Number of ports:                          110
+Number of nets:                           607
+Number of cells:                          511
+Number of combinational cells:            336
+Number of sequential cells:               170
+Number of macros/black boxes:               0
+Number of buf/inv:                         85
+Number of references:                      10
+
+Combinational area:               4675.029163
+Buf/Inv area:                     1217.884495
+Noncombinational area:            3840.748688
+Macro/Black Box area:                0.000000
+Net Interconnect area:          198240.992157
+
+Total cell area:                  8515.777851
+Total area:                     206756.770008
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area          Local cell area
+                                  ------------------  ---------------------------- 
+Hierarchical cell                 Absolute   Percent  Combi-     Noncombi-  Black-
+                                  Total      Total    national   national   boxes   Design
+--------------------------------  ---------  -------  ---------  ---------  ------  ------------------
+FIFO_TOP                          8515.7779    100.0   298.8818     0.0000  0.0000  FIFO_TOP
+ASYNC_FIFO_RAM_F3                 6227.0963     73.1  3515.9796  2711.1167  0.0000  ASYNC_FIFO_RAM
+FIFO_R_Pointer_F2                  550.6956      6.5   235.3400   315.3556  0.0000  FIFO_R_Pointer
+FIFO_Write_Pointer_F1              921.3561     10.8   624.8277   296.5284  0.0000  FIFO_Write_Pointer
+Sync_R2W_F4                        258.8740      3.0     0.0000   258.8740  0.0000  Sync_R2W
+Sync_W2R_F5                        258.8740      3.0     0.0000   258.8740  0.0000  Sync_W2R
+--------------------------------  ---------  -------  ---------  ---------  ------  ------------------
+Total                                                 4675.0292  3840.7487  0.0000
+
+1

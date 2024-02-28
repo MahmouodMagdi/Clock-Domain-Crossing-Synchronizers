@@ -1,0 +1,96 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:01:21 2023
+****************************************
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+  Startpoint: FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]
+              (rising edge-triggered flip-flop clocked by R_CLK)
+  Endpoint: R_Data[4] (output port clocked by R_CLK)
+  Path Group: R_CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock R_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                            12.00      12.00
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]/CK (DFFRHQX8M)
+                                                          0.00      12.00 r
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]/Q (DFFRHQX8M)     0.48      12.48 r
+  FIFO_R_Pointer_F2/R_Addr[1] (FIFO_R_Pointer)            0.00      12.48 r
+  U4/Y (CLKBUFX32M)                                       0.41      12.89 r
+  ASYNC_FIFO_RAM_F3/R_Addr[1] (ASYNC_FIFO_RAM)            0.00      12.89 r
+  ASYNC_FIFO_RAM_F3/U98/Y (BUFX14M)                       0.55      13.44 r
+  ASYNC_FIFO_RAM_F3/U243/Y (MX4X1M)                       0.51      13.95 f
+  ASYNC_FIFO_RAM_F3/U240/Y (MX4X1M)                       0.66      14.60 f
+  ASYNC_FIFO_RAM_F3/R_Data[4] (ASYNC_FIFO_RAM)            0.00      14.60 f
+  U3/Y (CLKINVX2M)                                        0.46      15.06 r
+  U10/Y (CLKINVX32M)                                      0.93      15.99 f
+  R_Data[4] (out)                                         0.00      15.99 f
+  data arrival time                                                 15.99
+
+  clock R_CLK (rise edge)                                20.00      20.00
+  clock network delay (ideal)                            12.00      32.00
+  clock uncertainty                                      -8.00      24.00
+  output external delay                                  -8.00      16.00
+  data required time                                                16.00
+  --------------------------------------------------------------------------
+  data required time                                                16.00
+  data arrival time                                                -15.99
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.01
+
+
+  Startpoint: W_inc (input port clocked by W_CLK)
+  Endpoint: ASYNC_FIFO_RAM_F3/MEM_reg[1][1]
+            (rising edge-triggered flip-flop clocked by W_CLK)
+  Path Group: W_CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  FIFO_TOP           tsmc13_wl30           scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock W_CLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                   40.00      40.00 f
+  W_inc (in)                                              0.00      40.00 f
+  U7/Y (NAND2X12M)                                        0.09      40.09 r
+  U6/Y (CLKINVX32M)                                       0.10      40.19 f
+  ASYNC_FIFO_RAM_F3/W_CLK_en (ASYNC_FIFO_RAM)             0.00      40.19 f
+  ASYNC_FIFO_RAM_F3/U127/Y (AND2X6M)                      0.24      40.43 f
+  ASYNC_FIFO_RAM_F3/U142/Y (AND2X12M)                     0.24      40.67 f
+  ASYNC_FIFO_RAM_F3/U100/Y (CLKAND2X6M)                   0.28      40.95 f
+  ASYNC_FIFO_RAM_F3/U115/Y (INVX24M)                      0.33      41.28 r
+  ASYNC_FIFO_RAM_F3/U134/Y (AO2B2X2M)                     0.50      41.78 f
+  ASYNC_FIFO_RAM_F3/MEM_reg[1][1]/D (DFFQX1M)             0.00      41.78 f
+  data arrival time                                                 41.78
+
+  clock W_CLK (rise edge)                                50.00      50.00
+  clock network delay (ideal)                             0.00      50.00
+  clock uncertainty                                      -8.00      42.00
+  ASYNC_FIFO_RAM_F3/MEM_reg[1][1]/CK (DFFQX1M)            0.00      42.00 r
+  library setup time                                     -0.22      41.78
+  data required time                                                41.78
+  --------------------------------------------------------------------------
+  data required time                                                41.78
+  data arrival time                                                -41.78
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

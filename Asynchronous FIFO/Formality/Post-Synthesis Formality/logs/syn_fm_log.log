@@ -1,0 +1,219 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP1 for linux64 - Apr 13, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4031317
+Hostname: IC (RHEL64)
+Current time: Sat Feb 25 04:05:43 2023
+
+Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
+############################  Search PATH ################################
+lappend search_path /home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys
+/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys
+lappend search_path /home/IC/Projects/FIFO/RTL
+/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys /home/IC/Projects/FIFO/RTL
+########################### Define Top Module ############################
+set top_module FIFO_TOP
+FIFO_TOP
+######################### Formality Setup File ###########################
+set synopsys_auto_setup true
+true
+set_svf "/home/IC/Projects/FIFO/Syn/FIFO.svf"
+Error: Invalid SVF, contents ignored (FM-339)
+0
+####################### Read Reference tech libs ########################
+set SSLIB "/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+read_db -container Ref [list $SSLIB]
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Created container 'Ref'
+Current container set to 'Ref'
+1
+###################  Read Reference Design Files ######################## 
+read_verilog -container Ref "FIFO_TOP.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/RTL/FIFO_TOP.v'
+1
+read_verilog -container Ref "FIFO_RPTR.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/RTL/FIFO_RPTR.v'
+1
+read_verilog -container Ref "ASYNC_FIFO_RAM.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/RTL/ASYNC_FIFO_RAM.v'
+1
+read_verilog -container Ref "FIFO_WPTR.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/RTL/FIFO_WPTR.v'
+1
+read_verilog -container Ref "Read_Pointer_Sync.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/RTL/Read_Pointer_Sync.v'
+1
+read_verilog -container Ref "Write_Pointer_Sync.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/RTL/Write_Pointer_Sync.v'
+1
+######################## set the top Reference Design ######################## 
+set_reference_design FIFO_TOP
+Reference design set to 'Ref:/WORK/FIFO_TOP'
+1
+set_top FIFO_TOP
+Setting top design to 'Ref:/WORK/FIFO_TOP'
+Status:   Elaborating design FIFO_TOP   ...  
+Status:   Elaborating design FIFO_Write_Pointer  ADDR_WIDTH=4 ...  
+Information: Created design named 'FIFO_Write_Pointer_ADDR_WIDTH4'. (FE-LINK-13)
+Status:   Elaborating design FIFO_R_Pointer  ADDR_WIDTH=4 ...  
+Information: Created design named 'FIFO_R_Pointer_ADDR_WIDTH4'. (FE-LINK-13)
+Status:   Elaborating design ASYNC_FIFO_RAM  ADDR_WIDTH=4, DATA_WIDTH=8 ...  
+Information: Created design named 'ASYNC_FIFO_RAM_ADDR_WIDTH4_DATA_WIDTH8'. (FE-LINK-13)
+Status:   Elaborating design Sync_R2W  ADDR_WIDTH=4 ...  
+Information: Created design named 'Sync_R2W_ADDR_WIDTH4'. (FE-LINK-13)
+Status:   Elaborating design Sync_W2R  ADDR_WIDTH=4 ...  
+Information: Created design named 'Sync_W2R_ADDR_WIDTH4'. (FE-LINK-13)
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'Ref:/WORK/FIFO_TOP'
+Reference design set to 'Ref:/WORK/FIFO_TOP'
+1
+####################### Read Implementation tech libs ######################## 
+read_db -container Imp [list $SSLIB]
+Loading db file '/home/IC/tsmc_fb_cl013g_sc/aci/sc-m/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Created container 'Imp'
+Current container set to 'Imp'
+1
+#################### Read Implementation Design Files ######################## 
+read_verilog -container Imp -netlist "/home/IC/Projects/FIFO/Syn/netlists/FIFO_TOP.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Projects/FIFO/Syn/netlists/FIFO_TOP.v'
+1
+####################  set the top Implementation Design ######################
+set_implementation_design FIFO_TOP
+Implementation design set to 'Imp:/WORK/FIFO_TOP'
+1
+set_top FIFO_TOP
+Setting top design to 'Imp:/WORK/FIFO_TOP'
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'Imp:/WORK/FIFO_TOP'
+Implementation design set to 'Imp:/WORK/FIFO_TOP'
+1
+## matching Compare points
+match
+Reference design is 'Ref:/WORK/FIFO_TOP'
+Implementation design is 'Imp:/WORK/FIFO_TOP'
+Status:  Checking designs...
+Status:  Building verification models...
+Status:  Matching...
+    
+*********************************** Matching Results ***********************************    
+ 180 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 14 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+1
+## verify
+set successful [verify]
+Reference design is 'Ref:/WORK/FIFO_TOP'
+Implementation design is 'Imp:/WORK/FIFO_TOP'
+    
+*********************************** Matching Results ***********************************    
+ 180 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 14 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+Status:  Verifying...
+
+***************************** Synopsys Auto Setup Summary ******************************
+
+!!! Synopsys Auto Setup Mode was enabled. !!!
+!!! Verification results are valid assuming the following setup constraints: !!!
+
+### RTL Interpretation Setup
+   set hdlin_ignore_parallel_case false
+   set hdlin_ignore_full_case false
+   set hdlin_error_on_mismatch_message false
+   set hdlin_ignore_embedded_configuration true
+
+### Undriven Signal Handling Setup
+   set verification_set_undriven_signals synthesis
+
+### Test Logic Setup
+   set verification_verify_directly_undriven_output false
+   For details see report_dont_verify_points and report_constants
+
+
+For further details on Synopsys Auto Setup Mode: Type man synopsys_auto_setup
+****************************************************************************************
+
+
+********************************* Verification Results *********************************
+Verification SUCCEEDED
+   ATTENTION: synopsys_auto_setup mode was enabled.
+              See Synopsys Auto Setup Summary for details.
+----------------------------------------------------------
+ Reference design: Ref:/WORK/FIFO_TOP
+ Implementation design: Imp:/WORK/FIFO_TOP
+ 180 Passing compare points
+----------------------------------------------------------------------------------------
+Matched Compare Points     BBPin    Loop   BBNet     Cut    Port     DFF     LAT   TOTAL
+----------------------------------------------------------------------------------------
+Passing (equivalent)           0       0       0       0      10     170       0     180
+Failing (not equivalent)       0       0       0       0       0       0       0       0
+****************************************************************************************
+1
+if {!$successful} {
+diagnose
+analyze_points -failing
+}
+report_passing_points > "reports/passing_points.rpt"
+report_failing_points > "reports/failing_points.rpt"
+report_aborted_points > "reports/aborted_points.rpt"
+report_unverified_points > "reports/unverified_points.rpt"
+start_gui
+     1  source -echo -verbose syn_fm_script.tcl
+1
+1
+fm_shell (verify)> ex
+exec exit expr 
+fm_shell (verify)> exit 
+
+Maximum memory usage for this session: 429568 KB
+CPU usage for this session: 6.79 seconds
+Current time: Sat Feb 25 04:06:44 2023
+Elapsed time: 77 seconds
+
+Thank you for using Formality (R)!

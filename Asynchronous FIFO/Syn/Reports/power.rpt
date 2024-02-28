@@ -1,0 +1,49 @@
+Loading db file '/home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:01:21 2023
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/Projects/FIFO/Synthesis/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+FIFO_TOP               tsmc13_wl30       scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+FIFO_TOP                               5.97e-02 8.48e-02 7.42e+06    0.152 100.0
+  Sync_W2R_F5 (Sync_W2R)               2.95e-04 8.23e-03 1.07e+05 8.63e-03   5.7
+  Sync_R2W_F4 (Sync_R2W)               1.11e-04 3.22e-03 1.05e+05 3.43e-03   2.3
+  ASYNC_FIFO_RAM_F3 (ASYNC_FIFO_RAM)   2.11e-02 5.42e-02 5.43e+06 8.07e-02  53.1
+  FIFO_R_Pointer_F2 (FIFO_R_Pointer)   4.77e-03 1.16e-02 3.81e+05 1.68e-02  11.0
+  FIFO_Write_Pointer_F1 (FIFO_Write_Pointer)
+                                       4.55e-03 5.79e-03 8.75e+05 1.12e-02   7.4
+1

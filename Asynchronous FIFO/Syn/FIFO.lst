@@ -1,0 +1,6 @@
+/home/IC/Projects/FIFO/RTL/FIFO_TOP.v
+/home/IC/Projects/FIFO/RTL/FIFO_RPTR.v
+/home/IC/Projects/FIFO/RTL/ASYNC_FIFO_RAM.v
+/home/IC/Projects/FIFO/RTL/FIFO_WPTR.v
+/home/IC/Projects/FIFO/RTL/Read_Pointer_Sync.v
+/home/IC/Projects/FIFO/RTL/Write_Pointer_Sync.v

@@ -1,0 +1,86 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:01:21 2023
+****************************************
+
+
+Min pulse width constraints
+
+                       Required      Actual
+  Pin                pulse width   pulse width   Slack           Scenario
+--------------------------------------------------------------------------------
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[4]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[0]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[1]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[2]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[3]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[4]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[0]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[1]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[2]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[3]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[4]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[0]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[1]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[2]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[3]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[4]/CK(low)  0.40 -10.00 -10.40 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]/CK(low)  0.35 -10.00 -10.35 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[2]/CK(low)  0.35 -10.00 -10.35 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[3]/CK(low)  0.35 -10.00 -10.35 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[0]/CK(high)  0.29 -10.00 -10.29 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[0]/CK(low)  0.28 -10.00 -10.28 (VIOLATED)
+  FIFO_R_Pointer_F2/R_empty_reg/CK(high)  0.27 -10.00 -10.27 (VIOLATED)
+  FIFO_R_Pointer_F2/R_empty_reg/CK(low)  0.26 -10.00 -10.26 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[4]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[0]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[1]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[2]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[3]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  FIFO_R_Pointer_F2/R_ptr_reg[4]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[0]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[1]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[2]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[3]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq1_wptr_reg[4]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[0]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[1]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[2]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[3]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  Sync_W2R_F5/Rq2_wptr_reg[4]/CK(high)  0.19 -10.00 -10.19 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]/CK(high)  0.16 -10.00 -10.16 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[2]/CK(high)  0.16 -10.00 -10.16 (VIOLATED)
+  FIFO_R_Pointer_F2/Binary_R_ptr_reg[3]/CK(high)  0.16 -10.00 -10.16 (VIOLATED)
+
+   min_period
+
+                             Required        Actual
+   Pin                      min period     min period        Slack
+   ------------------------------------------------------------------
+   FIFO_R_Pointer_F2/Binary_R_ptr_reg[0]/CK  1.00  0.00      -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]/CK  1.00  0.00      -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/Binary_R_ptr_reg[2]/CK  1.00  0.00      -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/Binary_R_ptr_reg[3]/CK  1.00  0.00      -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/Binary_R_ptr_reg[4]/CK  1.00  0.00      -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/R_empty_reg/CK  1.00    0.00            -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/R_ptr_reg[0]/CK  1.00   0.00            -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/R_ptr_reg[1]/CK  1.00   0.00            -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/R_ptr_reg[2]/CK  1.00   0.00            -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/R_ptr_reg[3]/CK  1.00   0.00            -1.00 (VIOLATED)
+   FIFO_R_Pointer_F2/R_ptr_reg[4]/CK  1.00   0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq1_wptr_reg[0]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq1_wptr_reg[1]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq1_wptr_reg[2]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq1_wptr_reg[3]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq1_wptr_reg[4]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq2_wptr_reg[0]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq2_wptr_reg[1]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq2_wptr_reg[2]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq2_wptr_reg[3]/CK  1.00      0.00            -1.00 (VIOLATED)
+   Sync_W2R_F5/Rq2_wptr_reg[4]/CK  1.00      0.00            -1.00 (VIOLATED)
+
+1

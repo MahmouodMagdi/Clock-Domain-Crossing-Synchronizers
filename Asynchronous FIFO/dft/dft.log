@@ -1,0 +1,1273 @@
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+                 Version K-2015.06 for linux64 - May 28, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/IC/.synopsys_dv_prefs.tcl
+########################### Define Top Module ############################
+set top_module FIFO_TOP
+FIFO_TOP
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+############################# Formality Setup File ##########################
+set_svf $top_module.svf
+1
+################## Design Compiler Library Files #setup ######################
+puts "###########################################"
+###########################################
+puts "#      #setting Design Libraries           #"
+#      #setting Design Libraries           #
+puts "###########################################"
+###########################################
+#Add the path of the libraries to the search_path variable
+lappend search_path /home/IC/Projects/FIFO/dft/Std_Cells/synopsys
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/Projects/FIFO/dft/Std_Cells/synopsys
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+## Standard Cell libraries 
+set target_library [list $SSLIB]
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+## Standard Cell & Hard Macros libraries 
+set link_library [list * $SSLIB]  
+* scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+######################## Reading RTL Files #################################
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+set file_format verilog
+verilog
+set fh [open FIFO.lst r+]
+file11
+set rtl [read $fh]
+/home/IC/Projects/FIFO/dft/RTL/FIFO_TOP.v
+/home/IC/Projects/FIFO/dft/RTL/FIFO_RPTR.v
+/home/IC/Projects/FIFO/dft/RTL/ASYNC_FIFO_RAM.v
+/home/IC/Projects/FIFO/dft/RTL/FIFO_WPTR.v
+/home/IC/Projects/FIFO/dft/RTL/Read_Pointer_Sync.v
+/home/IC/Projects/FIFO/dft/RTL/Write_Pointer_Sync.v
+/home/IC/Projects/FIFO/dft/RTL/2X1_MUX.v
+
+set designs ""
+regsub -all "\n" $rtl " " designs
+7
+read_file -format $file_format $designs
+Loading db file '/home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/gtech.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/standard.sldb'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'
+  Loading link library 'gtech'
+Loading verilog files: '/home/IC/Projects/FIFO/dft/RTL/FIFO_TOP.v' '/home/IC/Projects/FIFO/dft/RTL/FIFO_RPTR.v' '/home/IC/Projects/FIFO/dft/RTL/ASYNC_FIFO_RAM.v' '/home/IC/Projects/FIFO/dft/RTL/FIFO_WPTR.v' '/home/IC/Projects/FIFO/dft/RTL/Read_Pointer_Sync.v' '/home/IC/Projects/FIFO/dft/RTL/Write_Pointer_Sync.v' '/home/IC/Projects/FIFO/dft/RTL/2X1_MUX.v' 
+Detecting input file type automatically (-rtl or -netlist).
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/FIFO_TOP.v
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/FIFO_RPTR.v
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/ASYNC_FIFO_RAM.v
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/FIFO_WPTR.v
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/Read_Pointer_Sync.v
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/Write_Pointer_Sync.v
+Compiling source file /home/IC/Projects/FIFO/dft/RTL/2X1_MUX.v
+
+Inferred memory devices in process
+	in routine FIFO_R_Pointer line 45 in file
+		'/home/IC/Projects/FIFO/dft/RTL/FIFO_RPTR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      R_ptr_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  Binary_R_ptr_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     R_empty_reg     | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine ASYNC_FIFO_RAM line 29 in file
+		'/home/IC/Projects/FIFO/dft/RTL/ASYNC_FIFO_RAM.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       MEM_reg       | Flip-flop |  128  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+============================================================
+| block name/line   | Inputs | Outputs | # sel inputs | MB |
+============================================================
+| ASYNC_FIFO_RAM/39 |   16   |    8    |      4       | N  |
+============================================================
+
+Inferred memory devices in process
+	in routine FIFO_Write_Pointer line 22 in file
+		'/home/IC/Projects/FIFO/dft/RTL/FIFO_WPTR.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      W_ptr_reg      | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  Binary_W_ptr_reg   | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     W_Full_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Sync_R2W line 23 in file
+		'/home/IC/Projects/FIFO/dft/RTL/Read_Pointer_Sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Wq1_rptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    Wq2_rptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine Sync_W2R line 23 in file
+		'/home/IC/Projects/FIFO/dft/RTL/Write_Pointer_Sync.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    Rq1_wptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    Rq2_wptr_reg     | Flip-flop |   5   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/IC/Projects/FIFO/dft/RTL/FIFO_TOP.db:FIFO_TOP'
+Loaded 7 designs.
+Current design is 'FIFO_TOP'.
+FIFO_TOP FIFO_R_Pointer ASYNC_FIFO_RAM FIFO_Write_Pointer Sync_R2W Sync_W2R MUX_2X1
+###################### Defining toplevel ###################################
+current_design $top_module
+Current design is 'FIFO_TOP'.
+{FIFO_TOP}
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'FIFO_TOP'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (7 designs)               /home/IC/Projects/FIFO/dft/RTL/FIFO_TOP.db, etc
+  scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (library) /home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Sat Feb 25 04:43:52 2023
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      3
+    Unconnected ports (LINT-28)                                     3
+--------------------------------------------------------------------------------
+
+Warning: In design 'FIFO_TOP', port 'scan_in' is not connected to any nets. (LINT-28)
+Warning: In design 'FIFO_TOP', port 'scan_en' is not connected to any nets. (LINT-28)
+Warning: In design 'FIFO_TOP', port 'scan_out' is not connected to any nets. (LINT-28)
+1
+#################### Define Design Constraints #########################
+puts "###############################################"
+###############################################
+puts "############ Design Constraints #### ##########"
+############ Design Constraints #### ##########
+puts "###############################################"
+###############################################
+source ./cons.tcl
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c' found in library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'.
+#################### Archirecture Scan Chains #########################
+puts "###############################################"
+###############################################
+puts "############ Configure scan chains ############"
+############ Configure scan chains ############
+puts "###############################################"
+###############################################
+set_scan_configuration -clock_mixing no_mix  -style multiplexed_flip_flop -replace true -max_length 100
+Accepted scan configuration for modes: all_dft
+1
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+compile -scan 
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 3 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Sync_W2R'
+  Processing 'Sync_R2W'
+  Processing 'ASYNC_FIFO_RAM'
+  Processing 'FIFO_R_Pointer'
+  Processing 'FIFO_Write_Pointer'
+  Processing 'MUX_2X1_0'
+  Processing 'FIFO_TOP'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'FIFO_R_Pointer_DW01_cmp6_0'
+  Processing 'FIFO_R_Pointer_DW01_add_0'
+  Processing 'FIFO_Write_Pointer_DW01_add_0'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:08  241938.2      0.00       0.0      11.0                          
+    0:00:09  241938.2      0.00       0.0      11.0                          
+    0:00:09  241938.2      0.00       0.0      11.0                          
+    0:00:09  241938.2      0.00       0.0      11.0                          
+    0:00:09  241938.2      0.00       0.0      11.0                          
+    0:00:10  235342.9      2.22     272.7      10.8                          
+    0:00:10  235072.3      3.04     340.2      10.8                          
+    0:00:13  235072.3      2.99     328.3      10.8                          
+    0:00:13  235219.4      2.58     275.9      10.8                          
+    0:00:13  235439.4      2.25     243.8      10.0                          
+    0:00:14  235472.3      2.14     210.8      10.0                          
+    0:00:14  235493.5      2.67     228.7      10.0                          
+    0:00:15  235498.2      2.47     238.4      10.0                          
+    0:00:15  235379.4      2.13     247.8      10.0                          
+    0:00:15  235357.0      2.70     232.1      10.0                          
+    0:00:15  236132.3      1.96     198.3      10.0                          
+    0:00:15  236005.3      1.83     194.2      10.0                          
+    0:00:15  236027.6      1.82     192.9      10.0                          
+    0:00:15  235881.8      1.74     191.9      10.0                          
+    0:00:16  235887.6      1.72     189.7      10.0                          
+    0:00:16  235887.6      1.72     189.7      10.0                          
+    0:00:16  235887.6      1.72     189.7      10.0                          
+    0:00:16  235887.6      1.72     189.7      10.0                          
+    0:00:17  235837.0      1.73     191.1       8.3                          
+    0:00:17  235993.5      1.73     190.3       5.6                          
+    0:00:17  235993.5      1.73     190.3       5.6                          
+    0:00:17  235993.5      1.73     190.3       5.6                          
+    0:00:17  235993.5      1.73     190.3       5.6                          
+    0:00:17  237430.1      0.73      78.9       5.6 ASYNC_FIFO_RAM_F3/MEM_reg[0][0]/D
+    0:00:19  238125.4      0.60      63.6       5.6 ASYNC_FIFO_RAM_F3/MEM_reg[2][7]/D
+    0:00:20  237923.1      0.47      49.3       5.7 ASYNC_FIFO_RAM_F3/MEM_reg[3][6]/D
+    0:00:21  237690.2      0.43      39.1       5.8 ASYNC_FIFO_RAM_F3/MEM_reg[2][1]/D
+    0:00:22  238229.1      0.29      26.9       6.0 ASYNC_FIFO_RAM_F3/MEM_reg[2][0]/D
+    0:00:22  238639.7      0.03       0.9       6.2 ASYNC_FIFO_RAM_F3/MEM_reg[4][0]/D
+    0:00:23  238667.9      0.03       0.7       6.2 ASYNC_FIFO_RAM_F3/MEM_reg[2][0]/D
+    0:00:23  238687.9      0.03       0.5       6.2 ASYNC_FIFO_RAM_F3/MEM_reg[0][1]/D
+    0:00:23  238715.0      0.03       0.1       6.2 ASYNC_FIFO_RAM_F3/MEM_reg[7][5]/D
+    0:00:23  238588.0      0.00       0.0       6.2 ASYNC_FIFO_RAM_F3/MEM_reg[3][0]/D
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:23  238588.0      0.00       0.0       6.2                          
+    0:00:23  238588.0      0.00       0.0       6.2                          
+    0:00:26  219833.7      0.00       0.0       6.2                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:26  219833.7      0.00       0.0       6.2                          
+    0:00:27  220118.5      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:27  220118.5      0.00       0.0       0.0                          
+    0:00:27  220118.5      0.00       0.0       0.0                          
+    0:00:27  217507.8      0.00       0.0       0.0                          
+    0:00:27  217005.4      0.00       0.0       0.0                          
+    0:00:27  216859.5      0.01       0.0       0.0                          
+    0:00:27  216859.5      0.01       0.0       0.0                          
+    0:00:27  216859.5      0.01       0.0       0.0                          
+    0:00:27  216859.5      0.00       0.0       0.0                          
+    0:00:27  216137.0      0.80      18.9       0.0                          
+    0:00:27  216128.8      0.80      18.9       0.0                          
+    0:00:27  216128.8      0.80      18.9       0.0                          
+    0:00:27  216128.8      0.80      18.9       0.0                          
+    0:00:27  216128.8      0.80      18.9       0.0                          
+    0:00:27  216128.8      0.80      18.9       0.0                          
+    0:00:27  216128.8      0.80      18.9       0.0                          
+    0:00:28  216944.2      0.06       0.1       0.0 ASYNC_FIFO_RAM_F3/MEM_reg[12][7]/D
+    0:00:28  216964.2      0.00       0.0       0.0                          
+Loading db file '/home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+################################################################### 
+# Setting Test Timing Variables
+################################################################### 
+# Preclock Measure Protocol (default protocol)
+set test_default_period 100
+100
+set test_default_delay 0
+0
+set test_default_bidir_delay 0
+0
+set test_default_strobe 20
+20
+set test_default_strobe_width 0
+0
+########################## Define DFT Signals ##########################
+set_dft_signal -type ScanClock	  -port	[get_ports scan_CLK]	-timing {30 60}	-view existing_dft
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -type Reset	  -port	[get_ports scan_rst]	-active_state 0	-view existing_dft
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -type TestMode	  -port	[get_ports scan_mode]	-active_state 1	-view spec
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -type ScanEnable	  -port	[get_ports scan_en]	-active_state 1 -view spec		-usage scan
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -type ScanDataIn	  -port	[get_ports scan_in]			-view spec
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -type ScanDataOut  -port	[get_ports scan_out]			-view spec
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -type Constant 	  -port	[get_ports scan_mode]	-active_state 1	-view existing_dft
+Accepted dft signal specification for modes: all_dft
+1
+############################# Create Test Protocol #####################
+create_test_protocol 
+In mode: all_dft...
+
+Information: Starting test protocol creation. (TEST-219)
+  ...reading user specified clock signals...
+Information: Identified system/test clock port scan_CLK (30.0,60.0). (TEST-265)
+  ...reading user specified asynchronous signals...
+Information: Identified active low asynchronous control port scan_rst. (TEST-266)
+1
+###################### Pre-DFT Design Rule Checking ####################
+dft_drc -verbose
+In mode: all_dft...
+  Pre-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 170 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      * 170 cells are valid scan cells
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[1]
+         FIFO_Write_Pointer_F1/W_ptr_reg[3]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[0]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[2]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[3]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[4]
+         FIFO_Write_Pointer_F1/W_Full_reg
+         FIFO_Write_Pointer_F1/W_ptr_reg[0]
+         FIFO_Write_Pointer_F1/W_ptr_reg[1]
+         FIFO_Write_Pointer_F1/W_ptr_reg[2]
+         FIFO_Write_Pointer_F1/W_ptr_reg[4]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[3]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[0]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[2]
+         FIFO_R_Pointer_F2/R_ptr_reg[3]
+         FIFO_R_Pointer_F2/R_empty_reg
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[4]
+         FIFO_R_Pointer_F2/R_ptr_reg[0]
+         FIFO_R_Pointer_F2/R_ptr_reg[1]
+         FIFO_R_Pointer_F2/R_ptr_reg[2]
+         FIFO_R_Pointer_F2/R_ptr_reg[4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][3]
+         Sync_R2W_F4/Wq2_rptr_reg[4]
+         Sync_R2W_F4/Wq2_rptr_reg[1]
+         Sync_R2W_F4/Wq2_rptr_reg[0]
+         Sync_R2W_F4/Wq2_rptr_reg[2]
+         Sync_R2W_F4/Wq2_rptr_reg[3]
+         Sync_R2W_F4/Wq1_rptr_reg[4]
+         Sync_R2W_F4/Wq1_rptr_reg[3]
+         Sync_R2W_F4/Wq1_rptr_reg[2]
+         Sync_R2W_F4/Wq1_rptr_reg[1]
+         Sync_R2W_F4/Wq1_rptr_reg[0]
+         Sync_W2R_F5/Rq2_wptr_reg[4]
+         Sync_W2R_F5/Rq2_wptr_reg[3]
+         Sync_W2R_F5/Rq2_wptr_reg[2]
+         Sync_W2R_F5/Rq2_wptr_reg[0]
+         Sync_W2R_F5/Rq2_wptr_reg[1]
+         Sync_W2R_F5/Rq1_wptr_reg[4]
+         Sync_W2R_F5/Rq1_wptr_reg[3]
+         Sync_W2R_F5/Rq1_wptr_reg[2]
+         Sync_W2R_F5/Rq1_wptr_reg[1]
+         Sync_W2R_F5/Rq1_wptr_reg[0]
+
+Information: Test design rule checking completed. (TEST-123)
+1
+############################# Preview DFT ##############################
+preview_dft -show scan_summary
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+
+****************************************
+Preview_dft report
+For    : 'Insert_dft' command
+Design : FIFO_TOP
+Version: K-2015.06
+Date   : Sat Feb 25 04:44:36 2023
+****************************************
+
+Number of chains: 2
+Scan methodology: full_scan
+Scan style: multiplexed_flip_flop
+Clock domain: no_mix
+
+Chain      Scan Ports (si --> so)        # of Cells   Inst/Chain               Clock (port, time, edge)
+-----      ----------------------        ----------   ----------               ------------------------
+S 1        scan_in -->  scan_out                 85   ASYNC_FIFO_RAM_F3/MEM_reg[0][0]
+                            (scan_CLK, 30.0, rising) 
+S 2        test_si2 -->  test_so2                85   ASYNC_FIFO_RAM_F3/MEM_reg[10][5]
+                            (scan_CLK, 30.0, rising) 
+1
+############################# Insert DFT ###############################
+insert_dft
+Loading db file '/home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+  Routing Scan Chains
+  Routing Global Signals
+  Mapping New Logic
+Resetting current test mode
+  Beginning Mapping Optimizations
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+
+
+  Beginning Phase 1 Design Rule Fixing  (max_transition)  (max_capacitance)
+  ------------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:48  259673.8      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[9][6]
+    0:00:48  259823.2      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][5]
+    0:00:48  259972.6      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][7]
+    0:00:48  260122.0      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][4]
+    0:00:48  260271.4      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][6]
+    0:00:48  260420.8      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[9][5]
+    0:00:48  260570.3      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[9][4]
+    0:00:48  260719.7      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[10][7]
+    0:00:48  260719.7      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[10][7]
+    0:00:48  260869.1      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[10][0]
+    0:00:48  260869.1      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[10][0]
+    0:00:48  261018.5      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][1]
+    0:00:48  261167.9      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][2]
+    0:00:48  261317.3      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][3]
+    0:00:48  261466.7      0.09       0.4       0.6 ASYNC_FIFO_RAM_F3/MEM[1][0]
+    0:00:48  261765.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][7]
+    0:00:48  261765.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][7]
+    0:00:48  261765.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][7]
+    0:00:48  261765.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][7]
+    0:00:48  261765.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][7]
+    0:00:48  262064.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][6]
+    0:00:48  262064.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][6]
+    0:00:48  262064.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][6]
+    0:00:48  262064.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][6]
+    0:00:48  262064.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][6]
+    0:00:48  262363.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][5]
+    0:00:48  262363.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][5]
+    0:00:48  262363.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][5]
+    0:00:48  262363.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][5]
+    0:00:48  262363.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][5]
+    0:00:48  262662.1      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][4]
+    0:00:48  262662.1      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][4]
+    0:00:48  262662.1      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][4]
+    0:00:48  262662.1      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][4]
+    0:00:48  262662.1      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][4]
+    0:00:48  262960.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][1]
+    0:00:48  262960.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][1]
+    0:00:48  262960.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][1]
+    0:00:48  262960.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][1]
+    0:00:48  262960.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[4][1]
+    0:00:48  263259.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][7]
+    0:00:48  263259.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][7]
+    0:00:48  263259.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][7]
+    0:00:48  263259.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][7]
+    0:00:48  263259.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][7]
+    0:00:48  263558.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][6]
+    0:00:48  263558.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][6]
+    0:00:48  263558.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][6]
+    0:00:48  263558.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][6]
+    0:00:48  263558.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][6]
+    0:00:48  263857.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][5]
+    0:00:48  263857.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][5]
+    0:00:48  263857.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][5]
+    0:00:48  263857.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][5]
+    0:00:48  263857.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][5]
+    0:00:48  264156.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][4]
+    0:00:48  264156.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][4]
+    0:00:48  264156.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][4]
+    0:00:48  264156.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][4]
+    0:00:48  264156.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][4]
+    0:00:48  264455.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][1]
+    0:00:48  264455.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][1]
+    0:00:48  264455.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][1]
+    0:00:48  264455.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][1]
+    0:00:48  264455.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[7][1]
+    0:00:48  264753.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][7]
+    0:00:48  264753.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][7]
+    0:00:48  264753.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][7]
+    0:00:48  264753.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][7]
+    0:00:48  264753.9      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][7]
+    0:00:48  265052.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][6]
+    0:00:48  265052.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][6]
+    0:00:48  265052.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][6]
+    0:00:48  265052.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][6]
+    0:00:48  265052.7      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][6]
+    0:00:48  265351.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][5]
+    0:00:48  265351.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][5]
+    0:00:48  265351.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][5]
+    0:00:48  265351.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][5]
+    0:00:48  265351.5      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][5]
+    0:00:48  265650.3      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][4]
+    0:00:48  265650.3      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][4]
+    0:00:48  265650.3      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][4]
+    0:00:48  265650.3      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][4]
+    0:00:48  265650.3      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[2][4]
+    0:00:48  265799.8      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][6]
+    0:00:48  265799.8      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][6]
+    0:00:48  265949.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][5]
+    0:00:48  265949.2      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][5]
+    0:00:48  266098.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][7]
+    0:00:48  266098.6      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][7]
+    0:00:48  266248.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][4]
+    0:00:48  266248.0      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[11][4]
+    0:00:48  266397.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[15][1]
+    0:00:48  266397.4      0.09       0.4       0.5 ASYNC_FIFO_RAM_F3/MEM[15][1]
+    0:00:48  266546.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][5]
+    0:00:48  266546.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][5]
+    0:00:48  266696.2      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][4]
+    0:00:48  266696.2      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][4]
+    0:00:48  266845.7      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][6]
+    0:00:48  266845.7      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][6]
+    0:00:48  266995.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[5][4]
+    0:00:48  267144.5      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[5][6]
+    0:00:48  267293.9      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[9][7]
+    0:00:48  267443.3      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[5][1]
+    0:00:48  267592.7      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[5][5]
+    0:00:48  267742.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[5][7]
+    0:00:48  267891.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[6][1]
+    0:00:48  268041.0      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[6][5]
+    0:00:48  268190.4      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[6][7]
+    0:00:48  268190.4      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[6][7]
+    0:00:48  268339.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[6][4]
+    0:00:48  268489.2      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[6][6]
+    0:00:48  268638.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[10][5]
+    0:00:48  268638.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[10][5]
+    0:00:48  268788.0      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[10][6]
+    0:00:48  268788.0      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[10][6]
+    0:00:48  268937.5      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][7]
+    0:00:48  268937.5      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[15][7]
+    0:00:48  269236.3      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][3]
+    0:00:48  269236.3      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][3]
+    0:00:48  269236.3      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][3]
+    0:00:48  269236.3      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][3]
+    0:00:48  269236.3      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][3]
+    0:00:48  269535.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][2]
+    0:00:48  269535.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][2]
+    0:00:48  269535.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][2]
+    0:00:48  269535.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][2]
+    0:00:48  269535.1      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][2]
+    0:00:48  269833.9      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][0]
+    0:00:48  269833.9      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][0]
+    0:00:48  269833.9      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][0]
+    0:00:48  269833.9      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][0]
+    0:00:48  269833.9      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[7][0]
+    0:00:48  270132.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[0][1]
+    0:00:48  270132.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[0][1]
+    0:00:48  270132.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[0][1]
+    0:00:48  270132.8      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[0][1]
+    0:00:48  270431.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[4][3]
+    0:00:48  270431.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[4][3]
+    0:00:48  270431.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[4][3]
+    0:00:48  270431.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[4][3]
+    0:00:48  270431.6      0.09       0.4       0.4 ASYNC_FIFO_RAM_F3/MEM[4][3]
+    0:00:48  270730.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][2]
+    0:00:48  270730.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][2]
+    0:00:48  270730.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][2]
+    0:00:48  270730.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][2]
+    0:00:48  270730.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][2]
+    0:00:48  271029.3      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][0]
+    0:00:48  271029.3      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][0]
+    0:00:48  271029.3      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][0]
+    0:00:48  271029.3      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][0]
+    0:00:48  271029.3      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[4][0]
+    0:00:48  271328.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][3]
+    0:00:48  271328.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][3]
+    0:00:48  271328.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][3]
+    0:00:48  271328.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][3]
+    0:00:48  271626.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][2]
+    0:00:48  271626.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][2]
+    0:00:48  271626.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][2]
+    0:00:48  271626.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][2]
+    0:00:48  271626.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][2]
+    0:00:48  271925.7      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][1]
+    0:00:48  271925.7      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][1]
+    0:00:48  271925.7      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][1]
+    0:00:48  271925.7      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][1]
+    0:00:48  271925.7      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][1]
+    0:00:48  272224.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][0]
+    0:00:48  272224.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][0]
+    0:00:48  272224.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][0]
+    0:00:48  272224.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][0]
+    0:00:48  272224.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[2][0]
+    0:00:48  272374.0      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[15][0]
+    0:00:48  272523.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][0]
+    0:00:48  272523.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][0]
+    0:00:48  272672.8      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][1]
+    0:00:48  272672.8      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][1]
+    0:00:48  272822.2      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][2]
+    0:00:48  272822.2      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][2]
+    0:00:48  272971.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][3]
+    0:00:48  272971.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[11][3]
+    0:00:48  273121.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[15][2]
+    0:00:48  273121.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[15][2]
+    0:00:48  273270.5      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[15][3]
+    0:00:48  273270.5      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[15][3]
+    0:00:48  273419.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[8][0]
+    0:00:48  273419.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[8][0]
+    0:00:48  273569.3      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[6][2]
+    0:00:48  273718.7      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[6][3]
+    0:00:48  273868.1      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[6][0]
+    0:00:48  274017.5      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[10][1]
+    0:00:48  274017.5      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[10][1]
+    0:00:48  274167.0      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[10][2]
+    0:00:48  274167.0      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[10][2]
+    0:00:48  274316.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[10][3]
+    0:00:48  274316.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[10][3]
+    0:00:48  274465.8      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[13][0]
+    0:00:48  274465.8      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[13][0]
+    0:00:48  274615.2      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[9][0]
+    0:00:48  274764.6      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[5][3]
+    0:00:48  274914.0      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[5][0]
+    0:00:48  275063.4      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[9][1]
+    0:00:48  275212.9      0.09       0.4       0.3 ASYNC_FIFO_RAM_F3/MEM[9][2]
+    0:00:48  275362.3      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[9][3]
+    0:00:48  275511.7      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[5][2]
+    0:00:48  275810.5      0.09       0.4       0.2 Sync_W2R_F5/Rq2_wptr[0]  
+    0:00:48  275810.5      0.09       0.4       0.2 Sync_W2R_F5/Rq2_wptr[0]  
+    0:00:48  275810.5      0.09       0.4       0.2 Sync_W2R_F5/Rq2_wptr[0]  
+    0:00:48  275959.9      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[0][4]
+    0:00:48  275959.9      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[0][4]
+    0:00:48  276109.3      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][1]
+    0:00:48  276109.3      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][1]
+    0:00:48  276258.8      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][7]
+    0:00:48  276258.8      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][7]
+    0:00:48  276408.2      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][5]
+    0:00:48  276408.2      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][5]
+    0:00:48  276557.6      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][7]
+    0:00:48  276557.6      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][7]
+    0:00:48  276707.0      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][4]
+    0:00:48  276707.0      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][4]
+    0:00:48  276856.4      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][6]
+    0:00:48  276856.4      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[8][6]
+    0:00:48  277005.8      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[0][5]
+    0:00:48  277005.8      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[0][5]
+    0:00:48  277155.2      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][5]
+    0:00:48  277155.2      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][5]
+    0:00:48  277304.7      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][7]
+    0:00:48  277454.1      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][4]
+    0:00:48  277454.1      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][4]
+    0:00:48  277603.5      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][6]
+    0:00:48  277603.5      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[3][6]
+    0:00:48  277752.9      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[0][6]
+    0:00:48  277752.9      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[0][6]
+    0:00:48  277902.3      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[13][1]
+    0:00:48  278051.7      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[13][5]
+    0:00:48  278201.1      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[13][7]
+    0:00:48  278201.1      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[13][7]
+    0:00:48  278350.6      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[13][4]
+    0:00:48  278500.0      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[13][6]
+    0:00:48  278649.4      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[10][4]
+    0:00:48  278649.4      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[10][4]
+    0:00:48  278798.8      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][6]
+    0:00:48  278948.2      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][5]
+    0:00:48  279097.6      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[12][4]
+    0:00:48  279247.0      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[14][6]
+    0:00:48  279247.0      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[14][6]
+    0:00:48  279396.5      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[14][1]
+    0:00:48  279396.5      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[14][1]
+    0:00:48  279545.9      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[14][5]
+    0:00:48  279545.9      0.09       0.4       0.2 ASYNC_FIFO_RAM_F3/MEM[14][5]
+    0:00:48  279695.3      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][7]
+    0:00:48  279695.3      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][7]
+    0:00:48  279844.7      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][4]
+    0:00:48  279844.7      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][4]
+    0:00:48  279994.1      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][1]
+    0:00:48  280143.5      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][2]
+    0:00:48  280143.5      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][2]
+    0:00:48  280292.9      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][3]
+    0:00:48  280292.9      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][3]
+    0:00:48  280442.4      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][0]
+    0:00:48  280442.4      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[3][0]
+    0:00:48  280591.8      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[0][0]
+    0:00:48  280591.8      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[0][0]
+    0:00:48  280741.2      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[8][1]
+    0:00:48  280741.2      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[8][1]
+    0:00:48  280890.6      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[8][2]
+    0:00:48  280890.6      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[8][2]
+    0:00:48  281040.0      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[8][3]
+    0:00:48  281040.0      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[8][3]
+    0:00:48  281189.4      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[0][2]
+    0:00:48  281189.4      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[0][2]
+    0:00:48  281338.8      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[0][3]
+    0:00:48  281338.8      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[0][3]
+    0:00:48  281488.3      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[13][2]
+    0:00:48  281637.7      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[13][3]
+    0:00:48  281936.5      0.09       0.4       0.1 Sync_W2R_F5/Rq2_wptr[1]  
+    0:00:48  281936.5      0.09       0.4       0.1 Sync_W2R_F5/Rq2_wptr[1]  
+    0:00:48  281936.5      0.09       0.4       0.1 Sync_W2R_F5/Rq2_wptr[1]  
+    0:00:48  282085.9      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[12][0]
+    0:00:48  282235.3      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[12][2]
+    0:00:48  282384.7      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[12][3]
+    0:00:48  282534.2      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][0]
+    0:00:48  282534.2      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][0]
+    0:00:48  282683.6      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][2]
+    0:00:48  282683.6      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][2]
+    0:00:48  282833.0      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][3]
+    0:00:48  282833.0      0.09       0.4       0.1 ASYNC_FIFO_RAM_F3/MEM[14][3]
+    0:00:48  282982.4      0.09       0.4       0.0 FIFO_Write_Pointer_F1/W_Addr[3]
+    0:00:48  282982.4      0.09       0.4       0.0 FIFO_Write_Pointer_F1/W_Addr[3]
+    0:00:48  283311.8      0.09       0.3       0.0 R_Data[3]                
+    0:00:48  283641.2      0.09       0.3       0.0 R_Data[2]                
+    0:00:48  283970.7      0.06       0.2       0.0 R_Data[4]                
+    0:00:48  284300.1      0.02       0.1       0.0 R_Data[3]                
+    0:00:48  284471.9      0.02       0.1       0.0 R_Data[3]                
+    0:00:48  284815.4      0.02       0.0       0.0 R_Data[2]                
+    0:00:48  284815.4      0.02       0.0       0.0 R_Data[2]                
+    0:00:48  285144.8      0.01       0.0       0.0 R_Data[1]                
+    0:00:48  285316.6      0.00       0.0       0.0 R_Data[0]                
+    0:00:48  285646.0      0.00       0.0       0.0 R_Data[0]                
+    0:00:48  285814.3      0.00       0.0       0.0 FIFO_Write_Pointer_F1/W_Full_reg/D
+
+1
+######################## Optimize Logic post DFT #######################
+compile -scan -incremental
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02  285814.3      0.00       0.0       0.0                          
+    0:00:02  285814.3      0.00       0.0       0.0                          
+    0:00:05  285814.3      0.00       0.0       0.0                          
+    0:00:05  285814.3      0.00       0.0       0.0                          
+Loading db file '/home/IC/Projects/FIFO/dft/Std_Cells/synopsys/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+###################### Design Rule Checking post DFT ###################
+dft_drc -verbose -coverage_estimate
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+  ...checking clock rules...
+  ...checking scan chain rules...
+  ...checking scan compression rules...
+  ...checking X-state rules...
+  ...checking tristate rules...
+  ...extracting scan details...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 170 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      * 170 cells are valid scan cells
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[1]
+         FIFO_Write_Pointer_F1/W_ptr_reg[3]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[0]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[2]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[3]
+         FIFO_Write_Pointer_F1/Binary_W_ptr_reg[4]
+         FIFO_Write_Pointer_F1/W_Full_reg
+         FIFO_Write_Pointer_F1/W_ptr_reg[0]
+         FIFO_Write_Pointer_F1/W_ptr_reg[1]
+         FIFO_Write_Pointer_F1/W_ptr_reg[2]
+         FIFO_Write_Pointer_F1/W_ptr_reg[4]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[3]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[1]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[0]
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[2]
+         FIFO_R_Pointer_F2/R_ptr_reg[3]
+         FIFO_R_Pointer_F2/R_empty_reg
+         FIFO_R_Pointer_F2/Binary_R_ptr_reg[4]
+         FIFO_R_Pointer_F2/R_ptr_reg[0]
+         FIFO_R_Pointer_F2/R_ptr_reg[1]
+         FIFO_R_Pointer_F2/R_ptr_reg[2]
+         FIFO_R_Pointer_F2/R_ptr_reg[4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[1][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[6][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[13][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[11][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[15][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[3][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[12][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[9][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[4][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[10][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[2][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[5][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[8][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][6]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[7][0]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[0][3]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][1]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][5]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][2]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][7]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][4]
+         ASYNC_FIFO_RAM_F3/MEM_reg[14][3]
+         Sync_R2W_F4/Wq2_rptr_reg[4]
+         Sync_R2W_F4/Wq2_rptr_reg[1]
+         Sync_R2W_F4/Wq2_rptr_reg[0]
+         Sync_R2W_F4/Wq2_rptr_reg[2]
+         Sync_R2W_F4/Wq2_rptr_reg[3]
+         Sync_R2W_F4/Wq1_rptr_reg[4]
+         Sync_R2W_F4/Wq1_rptr_reg[3]
+         Sync_R2W_F4/Wq1_rptr_reg[2]
+         Sync_R2W_F4/Wq1_rptr_reg[1]
+         Sync_R2W_F4/Wq1_rptr_reg[0]
+         Sync_W2R_F5/Rq2_wptr_reg[4]
+         Sync_W2R_F5/Rq2_wptr_reg[3]
+         Sync_W2R_F5/Rq2_wptr_reg[2]
+         Sync_W2R_F5/Rq2_wptr_reg[0]
+         Sync_W2R_F5/Rq2_wptr_reg[1]
+         Sync_W2R_F5/Rq1_wptr_reg[4]
+         Sync_W2R_F5/Rq1_wptr_reg[3]
+         Sync_W2R_F5/Rq1_wptr_reg[2]
+         Sync_W2R_F5/Rq1_wptr_reg[1]
+         Sync_W2R_F5/Rq1_wptr_reg[0]
+
+....Inferring feed-through connections....
+Information: Test design rule checking completed. (TEST-123)
+  Running test coverage estimation...
+ 5312 faults were added to fault list.
+ 0            2800    688         0/0/0    86.65%      0.00
+ 0             377    311         0/0/0    93.75%      0.00
+ 0             181    130         0/0/0    97.16%      0.00
+ 0              67     63         0/0/0    98.42%      0.00
+ 0              52     11         0/0/0    99.40%      0.00
+ 0              11      0         0/0/0    99.60%      0.01
+ 
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ -----------------------------------------------
+ 
+
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT       5291
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU         21
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                              5312
+ test coverage                            99.60%
+ -----------------------------------------------
+  Information: The test coverage above may be inferior
+               than the real test coverage with customized
+               protocol and test simulation library.
+1
+#############################################################################
+# Write out Design after initial compile
+#############################################################################
+#Avoid Writing assign statements in the netlist
+change_name -hier -rule verilog
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+1
+write_file -format verilog -hierarchy -output netlist/FIFO_mapped.v
+Writing verilog file '/home/IC/Projects/FIFO/dft/netlist/FIFO_mapped.v'.
+1
+####################### reporting ##########################################
+report_area -hierarchy > reports/DFT_area.rpt
+report_power -hierarchy > reports/DFT_power.rpt
+report_timing -nworst 3 -delay_type min > reports/DFT_hold.rpt
+report_timing -nworst 3 -delay_type max > reports/DFT_setup.rpt
+report_clock -attributes > reports/DFT_clocks.rpt
+report_constraint -all_violators > reports/DFT_constraints.rpt
+################# starting graphical user interface #######################
+gui_start
+Current design is 'FIFO_TOP'.
+#exit
+dc_shell> dc_shell> Current design is 'FIFO_TOP'.
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/generic.sdb'
+dc_shell> 
+Received Signal 1 from: PID=15622 (UID=501)
+             
+Received Signal 1 from: PID=15622 (UID=501)
