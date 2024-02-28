@@ -7,10 +7,8 @@ F0 represents a bank of flops which generates the bus that will cross the clock 
 
 By the time, enable passes through FE1 and FE2, it is expected that the data bus at the input of F1 register bank would have settled. At the next edge of clk2, the bank F1 will sample its data – which is all settled to its new value. So, F1 will sample the new value of the bus.
 
-## Block Diagram
-![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/b793b804-ef50-43c9-9389-71743ae7ac4d)
 
-### Steps 
+## Steps 
 - One key idea in this design is that the synchronization event **(a pulse)** is converted into **a single toggle (either low to high, or high to low)** before being synchronized into the destination clock domain.
 - Each toggle represents one event. **You need to be careful when resetting the synchronizer such that no unintended events are generated (i.e. if the source domain is reset on its own, and the toggle signal goes from high to low due to reset).**
 - Source clock domain event to toggle generator
@@ -29,6 +27,9 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/51dd8a59-3fb9-4175-a2a9-61a197cc7fd4)
 
+- Finally, putting the entire synchronizer circuit together, we get the following
+  
+![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/b793b804-ef50-43c9-9389-71743ae7ac4d)
 
 ## Cost of Enable Synchronization
 For using an enable synchronization based method, **an additional enable signal has to be generated**. This would mean **additional circuitry** for generating this enable signal. This in turn would mean **additional area and power**. Further, **similar costs also get added for synchronizing this additional enable signal**. However, this cost is more than offset, because individual bits of the bus are no longer required to be synchronized individually. 
