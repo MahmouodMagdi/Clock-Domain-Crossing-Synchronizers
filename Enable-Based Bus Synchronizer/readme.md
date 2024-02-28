@@ -17,17 +17,21 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
   
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/a94dcb34-85c8-43d9-b1dc-31e1222e440f)
 
+
 - The following circuit resides in the **source clock domai**n, and **converts an event** that needs to traverse the clock domain crossing (CDC) into a **toggle**, which cannot be missed due to sampling in the destination clock domain.
   
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/fe5b5279-e797-4da5-943e-2961347eaea5)
+
 
 - Destination clock domain toggle to enable pulse generator
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/7d1edd2e-9be5-4c14-87ad-a09666ca7d71)
 
+
 - Next, we need a circuit in the **destination clock domain** to **convert the toggle back into a pulse** to capture the multi-bit signal.
 
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/51dd8a59-3fb9-4175-a2a9-61a197cc7fd4)
+
 
 - Finally, putting the entire synchronizer circuit together, we get the following
   
