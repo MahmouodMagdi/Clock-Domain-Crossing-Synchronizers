@@ -18,10 +18,12 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/a94dcb34-85c8-43d9-b1dc-31e1222e440f)
 
 
-- Timing Diagram of the Toggle circuit
+- Timing Diagram of the Toggle circuit:
   
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/fe5b5279-e797-4da5-943e-2961347eaea5)
 
+
+------
 
 - Destination clock domain toggle to enable pulse generator
 
