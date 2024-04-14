@@ -13,13 +13,10 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
 
 - Each toggle represents one event. **You need to be careful when resetting the synchronizer such that no unintended events are generated (i.e. if the source domain is reset on its own, and the toggle signal goes from high to low due to reset).**
   
-- Source clock domain event to toggle generator
+- Source clock domain event to toggle generator. The following circuit resides in the **source clock domai**n, and **converts an event** that needs to traverse the clock domain crossing (CDC) into a **toggle**, which cannot be missed due to sampling in the destination clock domain.
   
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/a94dcb34-85c8-43d9-b1dc-31e1222e440f)
 
-
-- The following circuit resides in the **source clock domai**n, and **converts an event** that needs to traverse the clock domain crossing (CDC) into a **toggle**, which cannot be missed due to sampling in the destination clock domain.
-  
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/fe5b5279-e797-4da5-943e-2961347eaea5)
 
 
