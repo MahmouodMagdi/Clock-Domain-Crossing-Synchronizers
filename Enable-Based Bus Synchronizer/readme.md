@@ -19,6 +19,7 @@ By the time, enable passes through FE1 and FE2, it is expected that the data bus
 
 
 - Timing Diagram of the Toggle circuit
+  
 ![image](https://github.com/MahmouodMagdi/Clock-Domain-Crossing-Synchronizers/assets/72949261/fe5b5279-e797-4da5-943e-2961347eaea5)
 
 
